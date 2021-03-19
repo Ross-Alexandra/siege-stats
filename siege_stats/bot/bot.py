@@ -104,5 +104,8 @@ class StatsBot(discord.Client):
         return sr
 
 if __name__ == "__main__":
+    from siege_stats.db.db_settings import db_pass
+    print(f"Attempting connection with db_pass: {db_pass}")
+
     client = StatsBot()
     client.run(bot_settings.bot_token)
