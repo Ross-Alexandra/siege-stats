@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo "Installing package requirements and building container"
+        echo "Test installing package requirements and building container"
         sh 'docker build . --tag siegeanalyzer --build-arg SIEGEANALYZERTOKEN=$SIEGEANALYZERTOKEN --build-arg POSTGRESHOST=$POSTGRESHOST --build-arg SIEGEANALYZERDATABASE=$SIEGEANALYZERDATABASE --build-arg SIEGEANALYZERDBUSER=$SIEGEANALYZERDBUSER --build-arg SIEGEANALYZERDBPASS=$SIEGEANALYZERDBPASS --build-arg POSTGRESPORT=$POSTGRESPORT'
       }
     }
@@ -25,9 +25,10 @@ pipeline {
         expression { env.BRANCH_NAME == 'master' }
       }
       steps {
-        sh 'sshpass -p $STRATMAPPERPASSWORD rsync -avzP $WORKSPACE/ stratmapper@$SERVER:$STRATMAPPERLOCATION/'
-        sh 'sshpass -p $STRATMAPPERPASSWORD ssh -oStrictHostKeyChecking=no stratmapper@$SERVER "(cd $STRATMAPPERLOCATION/ && docker-compose down)"'
-        sh 'sshpass -p $STRATMAPPERPASSWORD ssh -oStrictHostKeyChecking=no stratmapper@$SERVER "(cd $STRATMAPPERLOCATION/ && docker-compose up --build -d)"'
+        sh 'sshpass -p $ANALYSISBOTPASSWORD rsync -avzP $WORKSPACE/ analysisbot@$SERVER:$SIEGEANALYZERLOCATION/'
+        sh 'sshpass -p $ANALYSISBOTPASSWORD ssh -oStrictHostKeyChecking=no analysisbot@$SERVER "(cd $SIEGEANALYZERLOCATION/ && docker stop siegeanalyzer && docker rm siegeanalyzer)"'
+        sh 'sshpass -p $ANALYSISBOTPASSWORD ssh -oStrictHostKeyChecking=no analysisbot@$SERVER "(cd $SIEGEANALYZERLOCATION/ && docker build . --tag siegeanalyzer --build-arg SIEGEANALYZERTOKEN=$SIEGEANALYZERTOKEN --build-arg POSTGRESHOST=$POSTGRESHOST --build-arg SIEGEANALYZERDATABASE=$SIEGEANALYZERDATABASE --build-arg SIEGEANALYZERDBUSER=$SIEGEANALYZERDBUSER --build-arg SIEGEANALYZERDBPASS=\'$SIEGEANALYZERDBPASS\' --build-arg POSTGRESPORT=$POSTGRESPORT)"'
+        sh 'sshpass -p $ANALYSISBOTPASSWORD ssh -oStrictHostKeyChecking=no analysisbot@$SERVER "(cd $SIEGEANALYZERLOCATION/ && docker run -d --name siegeanalyzer siegeanalyzer)"'
       }
     }
   }
