@@ -3,6 +3,13 @@ CREATE TABLE players (
     player_name VARCHAR(20) NOT NULL
 );
 
+CREATE TABLE teams (
+    team_id serial,
+    player_id serial,
+    PRIMARY KEY(team_id, player_id),
+    CONSTRAINT plaryer_exists FOREIGN KEY(player_id) REFERENCES players(player_id)
+);
+
 CREATE TABLE maps (
     map_id serial PRIMARY KEY,
     map_name VARCHAR(20) NOT NULL
@@ -16,6 +23,7 @@ CREATE TABLE match_types (
 CREATE TABLE matches (
     match_id serial PRIMARY KEY,
     analyst_identifier VARCHAR(40),
+    team_id serial,
     map_id serial,
     match_type_id serial,
     rounds_won integer,

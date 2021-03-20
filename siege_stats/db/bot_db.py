@@ -35,6 +35,44 @@ class BotDB:
 
         return player_id, True
 
+    def add_team(self, players):
+        curs = self._connection.cursor()
+        team_sets = []
+        player_ids = []
+
+        # Iterate through each player and get a set
+        # of the teams they play on, and a list of player_ids.
+        for player in players:
+            player_id, _ = self._add_player(player)
+            player_ids.append(player_id)
+
+            curs.execute(queries.select_team_from_player, (player_id,))
+            team_sets.append({value[0] for value in curs.fetchall()})
+        
+        # Intersect all the sets together, if there's any
+        # values left, then all players are on that team.
+        team_ids = team_sets[0]
+        for team_set in team_sets[1:]:
+            team_ids = team_ids.intersection(team_set)
+
+        # If there are any team_ids remaining, then 
+        # this is not a new team.
+        if team_ids:
+
+            curs.close()
+            return team_ids[0], False
+
+        # Otherwise this is a new team, so insert a player, get a team
+        # id back, and insert the rest of the teams based off that 
+        # id.
+        curs.execute(queries.insert_team_player, (player_ids[0],))
+        team_id = curs.fetchone()[0]
+        for player_id in player_ids:
+            curs.execute(queries.insert_team, (team_id, player_ids[0]))
+
+        curs.close()
+        return team_id, True
+    
     def add_match(self, analyst_identifier: str, map_str: str, match_type: str, rounds_won: int, rounds_lost: int, score_at_half: int, attackers_start: bool):
 
         map_id = self._get_map_id(map_str)
