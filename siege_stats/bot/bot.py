@@ -82,6 +82,8 @@ class StatsBot(discord.Client):
             }
             db_conn.add_statistic(**kwargs)
 
+        message.channel.send(content="Finished processing your file :)")
+
     @staticmethod
     def _temp_download_file(url):
         """ Takes in a url and returns a file object of the temp file."""
