@@ -7,7 +7,7 @@ pipeline {
     stage('Build') {
       steps {
         echo "Test installing package requirements and building container"
-        sh 'docker build . --tag siegeanalyzer --build-arg SIEGEANALYZERTOKEN=$SIEGEANALYZERTOKEN --build-arg POSTGRESHOST=$POSTGRESHOST --build-arg SIEGEANALYZERDATABASE=$SIEGEANALYZERDATABASE --build-arg SIEGEANALYZERDBUSER=$SIEGEANALYZERDBUSER --build-arg SIEGEANALYZERDBPASS=$SIEGEANALYZERDBPASS --build-arg POSTGRESPORT=$POSTGRESPORT'
+        sh 'docker build . --tag siegeanalyzer_$BRANCH_NAME --build-arg SIEGEANALYZERTOKEN=$SIEGEANALYZERTOKEN --build-arg POSTGRESHOST=$POSTGRESHOST --build-arg SIEGEANALYZERDATABASE=$SIEGEANALYZERDATABASE --build-arg SIEGEANALYZERDBUSER=$SIEGEANALYZERDBUSER --build-arg SIEGEANALYZERDBPASS=$SIEGEANALYZERDBPASS --build-arg POSTGRESPORT=$POSTGRESPORT'
       }
     }
     stage('Test') {

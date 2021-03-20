@@ -60,17 +60,19 @@ class BotDB:
         if team_ids:
 
             curs.close()
-            return team_ids[0], False
+            self._connection.commit()
+            return team_ids.pop(), False
 
         # Otherwise this is a new team, so insert a player, get a team
         # id back, and insert the rest of the teams based off that 
         # id.
         curs.execute(queries.insert_team_player, (player_ids[0],))
         team_id = curs.fetchone()[0]
-        for player_id in player_ids:
-            curs.execute(queries.insert_team, (team_id, player_ids[0]))
+        for player_id in player_ids[1:]:
+            curs.execute(queries.insert_team, (team_id, player_id))
 
         curs.close()
+        self._connection.commit()
         return team_id, True
     
     def add_match(self, analyst_identifier: str, map_str: str, match_type: str, rounds_won: int, rounds_lost: int, score_at_half: int, attackers_start: bool):
