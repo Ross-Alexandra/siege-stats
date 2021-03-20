@@ -11,7 +11,6 @@ CREATE TABLE team_names (
 CREATE TABLE teams (
     team_id serial,
     player_id integer,
-    name_id integer REFERENCES team_names(team_id),
     PRIMARY KEY(team_id, player_id),
     CONSTRAINT plaryer_exists FOREIGN KEY(player_id) REFERENCES players(player_id)
 );
