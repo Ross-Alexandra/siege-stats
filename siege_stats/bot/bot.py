@@ -23,6 +23,8 @@ class StatsBot(discord.Client):
             # If the message has no attachments, ignore it.
             if len(message.attachments) == 0 or not all([attachment.url.endswith('.csv') for attachment in message.attachments]):
                 print("No attachments, or non-csv file included.")
+
+                await message.channel.send(content="What do you want from me? There's no file attached...")
                 return
         
             # Define the match_type for use in the db.
@@ -34,6 +36,7 @@ class StatsBot(discord.Client):
                 match_type = "league"
             else:
                 print(f"csv uploaded in invalid text channel: {message.channel.name}. Ignoring.")
+                await message.channel.send(content="I can't figure out what type of match this is, please post in a channel with scrim, qual, or league in it's name.")
                 return
 
             # Create a DB connection and parse out match statistics.
@@ -57,6 +60,8 @@ class StatsBot(discord.Client):
             # If that match already exists, then ignore this row.
             if not match_created:
                 print(f"Match already exists in database. Ignoring.")
+
+                await message.channel.send(content="I already have data for this match :/")
                 return
 
 
