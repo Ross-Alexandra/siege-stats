@@ -58,7 +58,7 @@ insert into maps(map_name) values('Club House');
 insert into maps(map_name) values('Theme Park');
 insert into maps(map_name) values('Consulate');
 insert into maps(map_name) values('Coastline');
-insert into maps(map_name) values('Kafe');
+insert into maps(map_name) values('Kafe Dostoyevsky');
 insert into maps(map_name) values('Chalet');
 insert into maps(map_name) values('Oregon');
 insert into maps(map_name) values('UNKNOWN');
