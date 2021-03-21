@@ -171,6 +171,9 @@ class BotDB:
         curs = self._connection.cursor()
         player_id = self._get_player_id(player_name)
 
+        if player_id is None:
+            return []
+
         curs.execute(queries.select_stat_by_player, (player_id,))
         player_stats = curs.fetchall()
 

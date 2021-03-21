@@ -188,8 +188,15 @@ class Stats:
 
         return self
 
+    def __bool__(self):
+        return not all([len(getattr(self, field)) == 0 for field in self.TRANSLATION_DICT.values()])
+
+
     def __str__(self):
         stat_string = "Statistics:\n"
+        if not self:
+            return stat_string + ">\tNo Data."
+
         for field in self.TRANSLATION_DICT.values():
             stat_string += f">\t{self.OUTPUT_PREFIXES[field]} {self.FIELD_TO_STRING[field]}: {self.AGGREGATE_VALUES[field](getattr(self, field))}\n"
 
