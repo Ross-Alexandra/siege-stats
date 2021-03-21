@@ -14,7 +14,30 @@ select_match = "SELECT match_id FROM matches WHERE analyst_identifier=%s;"
 insert_match = "INSERT INTO matches(analyst_identifier, map_id, match_type_id, rounds_won, rounds_lost, score_at_half, attacker_start) values(%s, %s, %s, %s, %s, %s, %s) RETURNING match_id;"
 
 # Stats Queries
-select_stat = "SELECT * FROM stats WHERE stat_id=%s;"
+# WARNING select_stat's order CANNOT BE CHANGED without chaning
+# bot.py's implementation of creating objects. The ordering is tied directly.
+select_stat_by_player = """SELECT 
+    rating,
+    attack_rating,
+    defence_rating,
+    kill_differential,
+    entry_differential,
+    trade_differential,
+    kost,
+    kills_per_round,
+    survival_percentage,
+    headshot_percentage,
+    multi_kill_rounds,
+    deaths,
+    kills,
+    defuser_planted,
+    defuser_disabled,
+    team_kills
+FROM 
+    stats 
+WHERE
+    player_id=%s;"""
+select_stat = "SELECT * FROM stats WHERE stat_id=%s"
 insert_stat = "INSERT INTO stats(player_id, match_id, map_id, rating, attack_rating, defence_rating, kill_differential, entry_differential, trade_differential, kost, kills_per_round, survival_percentage, headshot_percentage, multi_kill_rounds, deaths, kills, defuser_planted, defuser_disabled, team_kills) values(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING stat_id;"
 
 # Team Queries

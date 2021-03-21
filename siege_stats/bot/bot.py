@@ -1,10 +1,11 @@
 import siege_stats.bot.bot_settings as bot_settings
 import discord
 import io
+import re
 import requests
 import tempfile
 
-from siege_stats.statistics_processing.stat_reader import StatReader
+from siege_stats.statistics_processing.stat_reader import StatReader, Stats
 from siege_stats.db.bot_db import BotDB
 
 class StatsBot(discord.Client):
@@ -13,18 +14,50 @@ class StatsBot(discord.Client):
         print(f"{self.user} has connected to Discord!")
 
     async def on_message(self, message: discord.Message):
+        # If AnalyticsBot has not been mentioned, then ignore the message.
+        if 'AnalyticsBot' not in [mention.name for mention in message.mentions]:
+            return
+
+        # Strip any mentions out of the content of the message.
+        message_content = re.sub(r'<.+?>', '', message.content).strip()
+
+        if len(message.attachments) != 0:
+            await self.process_file(message)
+
+        if message_content.lower().startswith("=playerstats"):
+            for player in message_content.split(" ")[1:]:
+                await self.post_player_stats(player, message)
+
+    async def post_player_stats(self, player_name, message):
+        try:
+            db_conn = BotDB()
+
+            raw_stats = db_conn.get_player_stats(player_name)
+            player_stat = Stats()
+
+            for stat in raw_stats:
+                # Break the stat down into it's parts, the 
+                # db requested the data in the correct order for this.
+                player_stat += Stats(*stat)
+
+            response = f"{player_name} {player_stat}"
+            await message.channel.send(content=response)
+
+        except Exception as e:
+            print(e)
+            await message.channel.send(content="Error: An exception occurred while processing your request :(")
+        finally:
+            await message.delete()
+            db_conn.close()
+
+    async def process_file(self, message: discord.Message):
 
         try:
-            # If AnalyticsBot has not been mentioned, then ignore the message.
-            if 'AnalyticsBot' not in [mention.name for mention in message.mentions]:
-                print("Message did not mention AnalyticsBot.")
-                return
-
             # If the message has no attachments, ignore it.
             if len(message.attachments) == 0 or not all([attachment.url.endswith('.csv') for attachment in message.attachments]):
                 print("No attachments, or non-csv file included.")
 
-                await message.channel.send(content="What do you want from me? There's no file attached...")
+                await message.channel.send(content="Error: What do you want from me? There's no file attached...")
                 return
         
             # Define the match_type for use in the db.
@@ -36,7 +69,7 @@ class StatsBot(discord.Client):
                 match_type = "league"
             else:
                 print(f"csv uploaded in invalid text channel: {message.channel.name}. Ignoring.")
-                await message.channel.send(content="I can't figure out what type of match this is, please post in a channel with scrim, qual, or league in it's name.")
+                await message.channel.send(content="Error: I can't figure out what type of match this is, please post in a channel with scrim, qual, or league in it's name.")
                 return
 
             # Create a DB connection and parse out match statistics.
@@ -61,7 +94,7 @@ class StatsBot(discord.Client):
             if not match_created:
                 print(f"Match already exists in database. Ignoring.")
 
-                await message.channel.send(content="I already have data for this match :/")
+                await message.channel.send(content="Error: I already have data for this match :/")
                 return
 
 
@@ -90,9 +123,15 @@ class StatsBot(discord.Client):
                 }
                 db_conn.add_statistic(**kwargs)
 
-            await message.channel.send(content="Finished processing your file :)")
-        except Exception:
-            await message.channel.send(conent="An error occurred while processing the file :(")
+        except Exception as e:
+            print(e)
+            await message.channel.send(content="Error: An exception has occurred while processing the request :(")
+        finally:
+            await message.delete()
+            try:
+                db_conn.close()
+            except Exception:
+                pass
 
     @staticmethod
     def _temp_download_file(url):

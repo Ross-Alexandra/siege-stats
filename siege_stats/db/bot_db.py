@@ -14,6 +14,14 @@ class BotDB:
             port=db_settings.port
         )
 
+    def _get_player_id(self, player_name):
+        curs = self._connection.cursor()
+        curs.execute(queries.select_player, (player_name,))
+
+        player_id = curs.fetchall()
+
+        return None if len(player_id) == 0 else player_id[0]
+
     def _add_player(self, player_name):
         curs = self._connection.cursor()
         curs.execute(queries.select_player, (player_name,))
@@ -34,6 +42,35 @@ class BotDB:
         self._connection.commit()
 
         return player_id, True
+
+    def _get_map_id(self, map_name):
+        curs = self._connection.cursor()
+        curs.execute(queries.select_map_id, (map_name,))
+
+        # Fetch the map_id from the database.
+        map_id = curs.fetchone()
+        if map_id is None:
+            curs.execute(queries.select_map_id, ("UNKNOWN",))
+            map_id = curs.fetchone()
+
+        curs.close()
+        self._connection.commit()
+
+        return map_id[0]
+
+    def _get_match_type_id(self, match_type):
+        curs = self._connection.cursor()
+        curs.execute(queries.select_match_type_id, (match_type,))
+
+        match_type_id = curs.fetchone()
+        if match_type_id is None:
+            curs.execute(queries.select_match_type_id, ("scrim",))
+            match_type_id = curs.fetchone()
+
+        curs.close()
+        self._connection.commit()
+
+        return match_type_id[0]
 
     def add_team(self, players):
         curs = self._connection.cursor()
@@ -96,35 +133,6 @@ class BotDB:
 
         return match_id, True
 
-    def _get_map_id(self, map_name):
-        curs = self._connection.cursor()
-        curs.execute(queries.select_map_id, (map_name,))
-
-        # Fetch the map_id from the database.
-        map_id = curs.fetchone()
-        if map_id is None:
-            curs.execute(queries.select_map_id, ("UNKNOWN",))
-            map_id = curs.fetchone()
-
-        curs.close()
-        self._connection.commit()
-
-        return map_id[0]
-
-    def _get_match_type_id(self, match_type):
-        curs = self._connection.cursor()
-        curs.execute(queries.select_match_type_id, (match_type,))
-
-        match_type_id = curs.fetchone()
-        if match_type_id is None:
-            curs.execute(queries.select_match_type_id, ("scrim",))
-            match_type_id = curs.fetchone()
-
-        curs.close()
-        self._connection.commit()
-
-        return match_type_id[0]
-
     def add_statistic(self, player: str,
                              match_id: int, 
                              map_string: str,
@@ -158,6 +166,16 @@ class BotDB:
         self._connection.commit()
 
         return stats_id
+
+    def get_player_stats(self, player_name):
+        curs = self._connection.cursor()
+        player_id = self._get_player_id(player_name)
+
+        curs.execute(queries.select_stat_by_player, (player_id,))
+        player_stats = curs.fetchall()
+
+        curs.close()
+        return player_stats
 
     def close(self):
         self._connection.close()

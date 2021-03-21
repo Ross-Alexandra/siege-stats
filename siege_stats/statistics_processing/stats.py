@@ -94,23 +94,39 @@ class Stats:
         "teamKills": "team kills"
     }
 
-    def __init__(self):
-        self.rating = []
-        self.attackRating = []
-        self.defenceRating = []
-        self.killDifferential = []
-        self.entryDifferential = []
-        self.tradeDifferential = []
-        self.kost = []
-        self.killsPerRound = []
-        self.survivalPercent = []
-        self.headshotPercent = []
-        self.multiKillRounds = []
-        self.deaths = []
-        self.kills = []
-        self.defuserPlanted = []
-        self.defuserDisabled = []
-        self.teamKills = []
+    def __init__(self,
+                    rating: float=None,
+                    attack_rating: float=None,
+                    defence_rating: float=None,
+                    kill_differential: int=None,
+                    entry_differential: int=None,
+                    trade_differential: int=None,
+                    kost: float=None,
+                    kills_per_round: float=None,
+                    survival_percentage: float=None,
+                    headshot_percentage: float=None,
+                    multi_kill_rounds: int=None,
+                    deaths: int=None,
+                    kills: int=None,
+                    defuser_planted: int=None,
+                    defuser_disabled: int=None,
+                    team_kills: int=None):
+        self.rating = [rating] if rating is not None else []
+        self.attackRating = [attack_rating] if attack_rating is not None else []
+        self.defenceRating = [defence_rating] if defence_rating is not None else []
+        self.killDifferential = [kill_differential] if kill_differential is not None else []
+        self.entryDifferential = [entry_differential] if entry_differential is not None else []
+        self.tradeDifferential = [trade_differential] if trade_differential is not None else []
+        self.kost = [kost] if kost is not None else []
+        self.killsPerRound = [kills_per_round] if kills_per_round is not None else []
+        self.survivalPercent = [survival_percentage] if survival_percentage is not None else []
+        self.headshotPercent = [headshot_percentage] if headshot_percentage is not None else []
+        self.multiKillRounds = [multi_kill_rounds] if multi_kill_rounds is not None else []
+        self.deaths = [deaths] if deaths is not None else []
+        self.kills = [kills] if kills is not None else []
+        self.defuserPlanted = [defuser_planted] if defuser_planted is not None else []
+        self.defuserDisabled = [defuser_disabled] if defuser_disabled is not None else []
+        self.teamKills = [team_kills] if team_kills is not None else []
 
     def get_rating(self):
         return self.AGGREGATE_VALUES["rating"](self.rating)
