@@ -112,7 +112,7 @@ class BotDB:
         self._connection.commit()
         return team_id, True
     
-    def add_match(self, analyst_identifier: str, map_str: str, match_type: str, rounds_won: int, rounds_lost: int, score_at_half: int, attackers_start: bool):
+    def add_match(self, analyst_identifier: str, map_str: str, match_type: str, rounds_won: int, rounds_lost: int, score_at_half: int, attackers_start: bool, team_id: int):
 
         map_id = self._get_map_id(map_str)
         match_type_id = self._get_match_type_id(match_type)
@@ -125,7 +125,7 @@ class BotDB:
             print("Match already present.")
             return match_id[0], False
 
-        curs.execute(queries.insert_match, (analyst_identifier, map_id, match_type_id, rounds_won, rounds_lost, score_at_half, attackers_start))
+        curs.execute(queries.insert_match, (analyst_identifier, map_id, match_type_id, rounds_won, rounds_lost, score_at_half, attackers_start, team_id))
         match_id = curs.fetchone()[0]
 
         curs.close()

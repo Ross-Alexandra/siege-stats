@@ -11,7 +11,7 @@ select_match_type_id = "SELECT type_id FROM match_types WHERE type_name=%s;"
 
 # Match Queries
 select_match = "SELECT match_id FROM matches WHERE analyst_identifier=%s;"
-insert_match = "INSERT INTO matches(analyst_identifier, map_id, match_type_id, rounds_won, rounds_lost, score_at_half, attacker_start) values(%s, %s, %s, %s, %s, %s, %s) RETURNING match_id;"
+insert_match = "INSERT INTO matches(analyst_identifier, map_id, match_type_id, rounds_won, rounds_lost, score_at_half, attacker_start, team_id) values(%s, %s, %s, %s, %s, %s, %s, %s) RETURNING match_id;"
 
 # Stats Queries
 # WARNING select_stat's order CANNOT BE CHANGED without chaning

@@ -76,7 +76,7 @@ class StatsBot(discord.Client):
             db_conn = BotDB()
             match_statistics = self._get_match_stats([attachment.url for attachment in message.attachments])
 
-            db_conn.add_team(match_statistics.player_stats.keys())
+            team_id, _ = db_conn.add_team(match_statistics.player_stats.keys())
 
             # Create a dictionary to hold the args for creating a match, and create the match object.
             kwargs = {
@@ -86,7 +86,8 @@ class StatsBot(discord.Client):
                 "rounds_won": match_statistics.match_data["roundsWon"], 
                 "rounds_lost": match_statistics.match_data["roundsLost"], 
                 "score_at_half": match_statistics.match_data["scoreAtHalf"], 
-                "attackers_start": match_statistics.match_data["start_attack"]
+                "attackers_start": match_statistics.match_data["start_attack"],
+                "team_id": team_id,
             }
             match_id, match_created = db_conn.add_match(**kwargs)
 
