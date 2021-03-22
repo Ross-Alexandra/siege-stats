@@ -12,6 +12,10 @@ select_match_type_id = "SELECT type_id FROM match_types WHERE type_name=%s;"
 # Match Queries
 select_match = "SELECT match_id FROM matches WHERE analyst_identifier=%s;"
 insert_match = "INSERT INTO matches(analyst_identifier, map_id, match_type_id, rounds_won, rounds_lost, score_at_half, attacker_start, team_id) values(%s, %s, %s, %s, %s, %s, %s, %s) RETURNING match_id;"
+get_matches_by_match_type = "SELECT match_id FROM matches WHERE match_type_id=%s"
+
+# Match Type Queries
+get_match_type_id_from_string = "SELECT * FROM match_types WHERE type_name = %s;"
 
 # Stats Queries
 # WARNING select_stat's order CANNOT BE CHANGED without chaning
@@ -37,6 +41,27 @@ FROM
     stats 
 WHERE
     player_id=%s;"""
+select_stat_by_player_and_match = """SELECT 
+    rating,
+    attack_rating,
+    defence_rating,
+    kill_differential,
+    entry_differential,
+    trade_differential,
+    kost,
+    kills_per_round,
+    survival_percentage,
+    headshot_percentage,
+    multi_kill_rounds,
+    deaths,
+    kills,
+    defuser_planted,
+    defuser_disabled,
+    team_kills
+FROM 
+    stats 
+WHERE
+    player_id=%s and match_id=%s;"""
 select_stat = "SELECT * FROM stats WHERE stat_id=%s"
 insert_stat = "INSERT INTO stats(player_id, match_id, map_id, rating, attack_rating, defence_rating, kill_differential, entry_differential, trade_differential, kost, kills_per_round, survival_percentage, headshot_percentage, multi_kill_rounds, deaths, kills, defuser_planted, defuser_disabled, team_kills) values(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING stat_id;"
 

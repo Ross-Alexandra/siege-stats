@@ -28,11 +28,22 @@ class StatsBot(discord.Client):
             for player in message_content.split(" ")[1:]:
                 await self.post_player_stats(player, message)
 
+    def _get_match_type_from_channel(self, message):
+            if "scrim" in message.channel.name:
+                return "scrim"
+            elif "qual" in str(message.channel.name):
+                return "qualifier"
+            elif "league" in str(message.channel.name):
+                return "league"
+            else: 
+                return None
+
     async def post_player_stats(self, player_name, message):
         try:
             db_conn = BotDB()
 
-            raw_stats = db_conn.get_player_stats(player_name)
+            match_type = self._get_match_type_from_channel(message)
+            raw_stats = db_conn.get_player_stats(player_name, match_type)
             player_stat = Stats()
 
             for stat in raw_stats:
@@ -40,7 +51,7 @@ class StatsBot(discord.Client):
                 # db requested the data in the correct order for this.
                 player_stat += Stats(*stat)
 
-            response = f"{player_name} {player_stat}"
+            response = f"{player_name} {match_type if match_type is not None else 'aggregate'} {player_stat}"
             await message.channel.send(content=response)
 
         except Exception as e:
@@ -60,14 +71,8 @@ class StatsBot(discord.Client):
                 await message.channel.send(content="Error: What do you want from me? There's no file attached...")
                 return
         
-            # Define the match_type for use in the db.
-            if "scrim" in message.channel.name:
-                match_type = "scrim"
-            elif "qual" in str(message.channel.name):
-                match_type = "qualifier"
-            elif "league" in str(message.channel.name):
-                match_type = "league"
-            else:
+            match_type = self._get_match_type_from_channel(message)
+            if match_type is None:
                 print(f"csv uploaded in invalid text channel: {message.channel.name}. Ignoring.")
                 await message.channel.send(content="Error: I can't figure out what type of match this is, please post in a channel with scrim, qual, or league in it's name.")
                 return

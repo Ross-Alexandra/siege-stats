@@ -167,18 +167,44 @@ class BotDB:
 
         return stats_id
 
-    def get_player_stats(self, player_name):
+    def get_player_stats(self, player_name, match_type):
         curs = self._connection.cursor()
         player_id = self._get_player_id(player_name)
 
         if player_id is None:
             return []
 
-        curs.execute(queries.select_stat_by_player, (player_id,))
-        player_stats = curs.fetchall()
+        if match_type is None:
+            curs.execute(queries.select_stat_by_player, (player_id,))
+            player_stats = curs.fetchall()
+
+            curs.close()
+            return player_stats
+        else:
+            match_ids = self._get_match_ids_by_match_type(match_type)
+            player_stats = []
+
+            for match_id in match_ids:
+                curs.execute(queries.select_stat_by_player_and_match, (player_id, match_id))
+                player_stats += curs.fetchall()
+
+            curs.close()
+            return player_stats
+
+    def _get_match_ids_by_match_type(self, match_type_string):
+        curs = self._connection.cursor()
+        curs.execute(queries.get_match_type_id_from_string, (match_type_string,))
+
+        # Get the match_type_id
+        match_type_id = curs.fetchone()[0]
+
+        curs.execute(queries.get_matches_by_match_type, (match_type_id,))
+        match_ids = curs.fetchall()
 
         curs.close()
-        return player_stats
+        self._connection.commit()
+
+        return match_ids
 
     def close(self):
         self._connection.close()
