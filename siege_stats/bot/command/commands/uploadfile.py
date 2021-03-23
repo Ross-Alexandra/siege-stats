@@ -2,7 +2,7 @@ import io
 import requests
 
 from siege_stats.statistics_processing.stat_reader import StatReader
-from siege_stats.bot.command.command import Command
+from siege_stats.bot.command import Command
 from siege_stats.db.bot_db import BotDB
 
 class UploadFile(Command):
