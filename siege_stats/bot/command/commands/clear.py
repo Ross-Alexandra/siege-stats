@@ -2,8 +2,8 @@ from siege_stats.bot.command import Command
 
 class Clear(Command):
 
-    @classmethod
-    def command_string(self):
+    @staticmethod
+    def command_string():
         return "=clear"
 
     async def clear_all(self, channel):
@@ -37,3 +37,11 @@ class Clear(Command):
             await message.channel.send(content="Error: An exception occurred while processing your request :(")
         finally:
             await message.delete()
+
+    def has_access(self, user_id, guild_id):
+        """ Everyone can run clear commands. """
+        return True
+
+    def can_execute(self, user_id, guild_id, *args):
+        """ No restricted arguments. """
+        return True

@@ -72,6 +72,39 @@ class BotDB:
 
         return match_type_id[0]
 
+    def _get_team_id(self, players):
+        curs = self._connection.cursor()
+        team_sets = []
+        player_ids = []
+
+        # Iterate through each player and get a set
+        # of the teams they play on, and a list of player_ids.
+        for player in players:
+
+            # Get a player id for this player. If there
+            # is no stored player id, then this is not an existing team
+            player_id = self._get_player_id(player)
+            if player_id is None:
+                return None
+
+            player_ids.append(player_id)
+
+            curs.execute(queries.select_team_from_player, (player_id,))
+            team_sets.append({value[0] for value in curs.fetchall()})
+        
+        # Intersect all the sets together, if there's any
+        # values left, then all players are on that team.
+        team_ids = team_sets[0]
+        for team_set in team_sets[1:]:
+            team_ids = team_ids.intersection(team_set)
+
+        # If there are any team_ids remaining, then 
+        # this is not a new team.
+        if team_ids:
+            return team_ids.pop()
+        else:
+            return None
+
     def add_team(self, players):
         curs = self._connection.cursor()
         team_sets = []
@@ -167,6 +200,17 @@ class BotDB:
 
         return stats_id
 
+    def get_all_teams_for_player(self, player):
+        player_id = self._get_player_id(player)
+        if player_id is None:
+            return []
+
+        curs = self._connection.cursor()
+        curs.execute(queries.select_team_from_player, (player_id,))
+
+        return [team_id[0] for team_id in curs.fetchall()]
+
+
     def get_player_stats(self, player_name, match_type):
         curs = self._connection.cursor()
         player_id = self._get_player_id(player_name)
@@ -190,6 +234,59 @@ class BotDB:
 
             curs.close()
             return player_stats
+
+    def is_user_admin(self, discord_user_id):
+        curs = self._connection.cursor()
+        curs.execute(queries.get_admin_by_id, (discord_user_id,))
+
+        admin = curs.fetchall()
+
+        curs.close()
+        return bool(admin)
+
+    def user_has_player_permissions(self, user_id, player_name):
+        player_id = self._get_player_id(player_name)
+        if player_id is None:
+            return False
+        
+        curs = self._connection.cursor()
+        curs.execute(queries.get_user_permissison_for_player_id, (user_id, player_id))
+
+        permissions = curs.fetchall()
+
+        curs.close()
+        return bool(permissions)
+
+    def guild_has_player_permissions(self, guild_id, player_name):
+        player_id = self._get_player_id(player_name)
+        if player_id is None:
+            return False
+        
+        curs = self._connection.cursor()
+        curs.execute(queries.get_guild_permissison_for_player_id, (guild_id, player_id))
+
+        permissions = curs.fetchall()
+
+        curs.close()
+        return bool(permissions)
+
+    def user_has_team_permissions(self, user_id, team_id):        
+        curs = self._connection.cursor()
+        curs.execute(queries.get_user_permissison_for_team_id, (user_id, team_id))
+
+        permissions = curs.fetchall()
+
+        curs.close()
+        return bool(permissions)
+
+    def guild_has_team_permissions(self, guild_id, team_id):
+        curs = self._connection.cursor()
+        curs.execute(queries.get_guild_permissison_for_team_id, (guild_id, team_id))
+
+        permissions = curs.fetchall()
+
+        curs.close()
+        return bool(permissions)
 
     def _get_match_ids_by_match_type(self, match_type_string):
         curs = self._connection.cursor()

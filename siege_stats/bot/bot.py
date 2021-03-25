@@ -3,6 +3,7 @@ import discord
 import re
 
 from siege_stats.bot.command.command_parser import CommandParser
+from siege_stats.db.bot_db import BotDB
 
 class StatsBot(discord.Client):
 

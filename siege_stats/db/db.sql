@@ -1,3 +1,4 @@
+-- Player, Team, And Statistic Data --
 CREATE TABLE players (
     player_id serial PRIMARY KEY,
     player_name VARCHAR(20) NOT NULL
@@ -79,3 +80,49 @@ insert into maps(map_name) values('UNKNOWN');
 insert into match_types(type_name) values('scrim');
 insert into match_types(type_name) values('qualifier');
 insert into match_types(type_name) values('league');
+
+
+-- Discord and Permissions data --
+CREATE TABLE guilds (
+    guild_id bigint PRIMARY KEY, -- Discord's id for the guild.
+    guild_name varchar(50) NOT NULL
+);
+
+CREATE TABLE discord_users (
+    discord_user_id bigint PRIMARY KEY, -- Dicord's id for the user.
+    user_name varchar(50) NOT NULL
+);
+
+CREATE TABLE permission_holders (
+    holder_id serial PRIMARY KEY,
+    tablename VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE permission_types (
+    type_id serial PRIMARY KEY,
+    tablename VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE bot_admins (
+    admin_id serial PRIMARY KEY,
+    discord_user_id bigint,
+    CONSTRAINT user_id_exists FOREIGN KEY(discord_user_id) REFERENCES discord_users(discord_user_id)
+);
+
+CREATE TABLE bot_permissions (
+    permission_id serial PRIMARY KEY,
+    permission_holder_type integer, -- To a User, Guild, or etc.
+    permission_object_type integer, -- For a player, team, or etc.
+    permission_holder bigint, -- The id for the User/Guild/etc.
+    permission_object integer, -- The id for the player/team/etc.
+    CONSTRAINT permission_holder_exists FOREIGN KEY(permission_holder_type) REFERENCES permission_holders(holder_id),
+    CONSTRAINT permission_for_exists FOREIGN KEY(permission_object_type) REFERENCES permission_types(type_id)
+);
+
+insert into permission_holders(tablename) values('discord_user');
+insert into permission_holders(tablename) values('guild');
+
+insert into permission_types(tablename) values('players');
+insert into permission_types(tablename) values('teams');
+insert into permission_types(tablename) values('discord_user');
+insert into permission_types(tablename) values('guild');

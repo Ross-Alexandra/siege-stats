@@ -1,3 +1,11 @@
+# Admin Queries
+get_admin_by_id = "SELECT * FROM bot_admins WHERE discord_user_id=%s LIMIT 1"
+
+# Permissions Queries
+get_user_permissison_for_player_id = "SELECT * FROM bot_permissions WHERE permission_holder_type=1 and permission_object_type=1 and permission_holder=%s and permission_object=%s"
+get_guild_permissison_for_player_id = "SELECT * FROM bot_permissions WHERE permission_holder_type=2 and permission_object_type=1 and permission_holder=%s and permission_object=%s"
+get_user_permissison_for_team_id = "SELECT * FROM bot_permissions WHERE permission_holder_type=1 and permission_object_type=2 and permission_holder=%s and permission_object=%s"
+get_guild_permissison_for_team_id = "SELECT * FROM bot_permissions WHERE permission_holder_type=2 and permission_object_type=2 and permission_holder=%s and permission_object=%s"
 
 # Player Queries
 select_player = "SELECT player_id FROM players WHERE player_name=%s;"

@@ -7,8 +7,8 @@ from siege_stats.db.bot_db import BotDB
 
 class UploadFile(Command):
 
-    @classmethod
-    def command_string(self):
+    @staticmethod
+    def command_string():
         return "=uploadfile"
 
     async def execute(self, message, *args):
@@ -20,7 +20,12 @@ class UploadFile(Command):
                 await message.channel.send(content="Error: What do you want from me? There's no file attached...")
                 return
         
-            match_type = self._get_match_type_from_channel(message)
+            if len(args) > 1:
+                raw_match_type = self._get_match_type(args[1])
+                match_type = raw_match_type if raw_match_type is not None else self._get_match_type(message.channel.name) 
+            else:
+                match_type = self._get_match_type(message.channel.name)
+
             if match_type is None:
                 print(f"csv uploaded in invalid text channel: {message.channel.name}. Ignoring.")
                 await message.channel.send(content="Error: I can't figure out what type of match this is, please post in a channel with scrim, qual, or league in it's name.")
@@ -88,6 +93,14 @@ class UploadFile(Command):
             except Exception:
                 pass
     
+    def has_access(self, player_id, guild_id):
+        """ Everyone has access to uploading files. """
+        return True
+    
+    def can_execute(self, player_id, guild_id, *args):
+        """ Everyone has the ability run with all arguments. """
+        return True
+
     def _get_match_stats(self, urls):
         temp_files = [self._temp_download_file(url) for url in urls]
 
