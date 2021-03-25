@@ -8,8 +8,8 @@ get_user_permissison_for_team_id = "SELECT * FROM bot_permissions WHERE permissi
 get_guild_permissison_for_team_id = "SELECT * FROM bot_permissions WHERE permission_holder_type=2 and permission_object_type=2 and permission_holder=%s and permission_object=%s"
 
 # Player Queries
-select_player = "SELECT player_id FROM players WHERE player_name=%s;"
-insert_player = "INSERT INTO players(player_name) values(%s) RETURNING player_id;"
+select_player = "SELECT player_id FROM players WHERE player_name=LOWER(%s);"
+insert_player = "INSERT INTO players(player_name) values(LOWER(%s)) RETURNING player_id;"
 
 # Map Queries
 select_map_id = "SELECT map_id FROM maps WHERE map_name=%s;"

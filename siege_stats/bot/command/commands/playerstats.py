@@ -12,7 +12,7 @@ class PlayerStats(Command):
         return {
             "command": args[0],
             "match_type": match_type,
-            "players": args[2:] if match_type else args[1:]
+            "players": [arg.lower() for arg in args[2:]] if match_type else [arg.lower() for arg in args[1:]]
         }
 
     @staticmethod
