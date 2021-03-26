@@ -27,11 +27,13 @@ class CommandParser:
                     if command.can_execute(author.id, guild.id, *command_arguments):
                         command_response = await command.execute(self.message, *command_arguments)
                     else:
-                        return await self.message.channel.send(content=f"Error: Neither {author.name} ({author.id}) nor {guild.name} ({guild.id}) have permissions to run {command_arguments[0]} with {command_arguments[1:]}.")
+                        error_message = command.execute_permission_error_message(author, guild, command_arguments)
+                        return await self.message.channel.send(content=error_message)
 
                     command.cleanup()
                 else:
-                    return await self.message.channel.send(content=f"Error: Neither {author.name} ({author.id}) nor {guild.name} ({guild.id}) have permission for this command.")
+                    error_message = command.access_permission_error_message(author, guild, command_arguments)
+                    return await self.message.channel.send(content=error_message)
 
                 return command_response
 

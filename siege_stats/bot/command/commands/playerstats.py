@@ -15,6 +15,15 @@ class PlayerStats(Command):
             "players": [arg.lower() for arg in args[2:]] if match_type else [arg.lower() for arg in args[1:]]
         }
 
+    def execute_permission_error_message(self, user, guild, arguments):
+        response = ""
+        
+        players = self._parse_args(*arguments)["players"]
+        for player_name in players:
+            response += f"No data for {player_name}\n"
+        
+        return response
+
     @staticmethod
     def command_string():
         return "=playerstats"

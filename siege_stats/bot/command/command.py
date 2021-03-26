@@ -7,8 +7,14 @@ class Command(metaclass=ABCMeta):
     def __init__(self):
         self._connection = BotDB()
 
+    def access_permission_error_message(self, user, guild, arguments):
+        return f"Error: Neither {user.name} ({user.id}) nor {guild.name} ({guild.id}) have permission for this command."
+
     def cleanup(self):
         self._connection.close()
+
+    def execute_permission_error_message(self, user, guild, arguments):
+        return f"Error: Neither {user.name} ({user.id}) nor {guild.name} ({guild.id}) have permissions to run {arguments[0]} with {arguments[1:]}."
 
     @staticmethod
     @abstractmethod
