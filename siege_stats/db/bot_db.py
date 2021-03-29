@@ -105,6 +105,13 @@ class BotDB:
         else:
             return None
 
+    def add_guild(self, guild_id, guild_name):
+        curs = self._connection.cursor()
+
+        curs.execute(queries.add_guild, (guild_id, guild_name))
+
+        self._connection.commit()
+
     def add_team(self, players):
         curs = self._connection.cursor()
         team_sets = []

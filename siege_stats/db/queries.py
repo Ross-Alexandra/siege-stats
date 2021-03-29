@@ -1,5 +1,9 @@
 # Admin Queries
-get_admin_by_id = "SELECT * FROM bot_admins WHERE discord_user_id=%s LIMIT 1"
+get_admin_by_id = "SELECT * FROM bot_admins WHERE discord_user_id=%s LIMIT 1;"
+
+# Guild Queries
+add_guild = "INSERT INTO guild(guild_id, guild_name) values(%s, %s);"
+get_guild_by_name = "SELECT guild_id FROM guild WHERE guild_name=%s;"
 
 # Permissions Queries
 get_user_permissison_for_player_id = "SELECT * FROM bot_permissions WHERE permission_holder_type=1 and permission_object_type=1 and permission_holder=%s and permission_object=%s"
