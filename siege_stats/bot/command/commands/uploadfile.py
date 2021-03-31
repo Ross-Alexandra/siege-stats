@@ -28,7 +28,7 @@ class UploadFile(Command):
 
             if match_type is None:
                 print(f"csv uploaded in invalid text channel: {message.channel.name}. Ignoring.")
-                await message.channel.send(content="Error: I can't figure out what type of match this is, please post in a channel with scrim, qual, or league in it's name.")
+                await message.channel.send(content="Error: I can't figure out what type of match this is, please run one of '=uploadfile scrim', '=uploadfile qual', or '=uploadfile league'.")
                 return
 
             # Create a DB connection and parse out match statistics.
