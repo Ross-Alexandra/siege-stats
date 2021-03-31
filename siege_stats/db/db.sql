@@ -4,6 +4,11 @@ CREATE TABLE players (
     player_name VARCHAR(20) NOT NULL
 );
 
+CREATE TABLE player_aliases (
+    player_id integer PRIMARY KEY REFERENCES players(player_id),
+    alias VARCHAR(20) NOT NULL
+);
+
 CREATE TABLE team_names (
     team_id serial PRIMARY KEY,
     team_name VARCHAR(50)
