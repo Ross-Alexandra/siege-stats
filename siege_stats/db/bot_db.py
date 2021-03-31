@@ -30,7 +30,6 @@ class BotDB:
 
         # Check if the player already exists in the database.
         if player_id:
-            print("Name already present.")
             curs.close()
 
             return player_id[0], False
@@ -217,6 +216,15 @@ class BotDB:
 
         return [team_id[0] for team_id in curs.fetchall()]
 
+    def get_guild_name(self, guild_id):
+        curs = self._connection.cursor()
+
+        curs.execute(queries.get_guild_name, (guild_id,))
+
+        guild_name = curs.fetchone()
+        curs.close()
+
+        return None if guild_name is None else guild_name[0]
 
     def get_player_stats(self, player_name, match_type):
         curs = self._connection.cursor()
@@ -242,6 +250,24 @@ class BotDB:
             curs.close()
             return player_stats
 
+    def get_team_id_by_name(self, team_name):
+        curs = self._connection.cursor()
+
+        curs.execute(queries.select_team_from_name, (team_name,))
+
+        team_id = curs.fetchone()
+        curs.close()
+
+        return None if team_id is None else team_id[0]
+
+    def give_guild_team_permissions(self, guild_id, team_id):
+        curs = self._connection.cursor()
+
+        curs.execute(queries.add_guild_permission_for_team, (guild_id, team_id))
+        curs.close()
+
+        self._connection.commit()
+
     def is_user_admin(self, discord_user_id):
         curs = self._connection.cursor()
         curs.execute(queries.get_admin_by_id, (discord_user_id,))
@@ -250,6 +276,31 @@ class BotDB:
 
         curs.close()
         return bool(admin)
+
+    def update_guild_name(self, guild_id, guild_name):
+        curs = self._connection.cursor()
+
+        curs.execute(queries.set_guild_name, (guild_name, guild_id))
+        curs.close()
+
+        self._connection.commit()
+
+    def set_team_name(self, team_id, team_name):
+        curs = self._connection.cursor()
+
+        # Check if this team already has a name
+        curs.execute(queries.select_team_name_from_id, (team_id,))
+        
+        # If there is no name for this team id, add one
+        if curs.fetchone() is None:
+            curs.execute(queries.insert_team_name, (team_id, team_name))
+
+        # Otherwise, update the current one.
+        else:
+            curs.execute(queries.update_team_name, (team_name, team_id))
+        curs.close()
+
+        self._connection.commit()
 
     def user_has_player_permissions(self, user_id, player_name):
         player_id = self._get_player_id(player_name)

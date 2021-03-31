@@ -32,10 +32,10 @@ class UploadFile(Command):
                 return
 
             # Create a DB connection and parse out match statistics.
-            db_conn = BotDB()
+            self._connection = BotDB()
             match_statistics = self._get_match_stats([attachment.url for attachment in message.attachments])
 
-            team_id, _ = db_conn.add_team(match_statistics.player_stats.keys())
+            team_id = self._get_or_create_guild_team(message.guild, match_statistics.player_stats.keys())
 
             # Create a dictionary to hold the args for creating a match, and create the match object.
             kwargs = {
@@ -48,7 +48,7 @@ class UploadFile(Command):
                 "attackers_start": match_statistics.match_data["start_attack"],
                 "team_id": team_id,
             }
-            match_id, match_created = db_conn.add_match(**kwargs)
+            match_id, match_created = self._connection.add_match(**kwargs)
 
             # If that match already exists, then ignore this row.
             if not match_created:
@@ -81,17 +81,13 @@ class UploadFile(Command):
                     "defuser_disabled": stat_object.get_defuser_disabled(),
                     "team_kills": stat_object.get_team_kills()
                 }
-                db_conn.add_statistic(**kwargs)
+                self._connection.add_statistic(**kwargs)
 
         except Exception as e:
             print(e)
             await message.channel.send(content="Error: An exception has occurred while processing the request :(")
         finally:
             await message.delete()
-            try:
-                db_conn.close()
-            except Exception:
-                pass
     
     def has_access(self, player_id, guild_id):
         """ Everyone has access to uploading files. """
@@ -111,6 +107,32 @@ class UploadFile(Command):
             temp.close()
 
         return sr
+
+    def _get_or_create_guild_team(self, guild, players):
+
+        team_id = self._connection.get_team_id_by_name(guild.name)
+
+        if team_id is None:
+            old_guild_name = self._connection.get_guild_name(guild.id)
+            if old_guild_name is None:
+                self._connection.add_guild(guild.id, guild.name)
+                old_guild_name = guild.name
+
+            # No team has been registerd for this guild
+            if old_guild_name == guild.name:
+                team_id, _ = self._connection.add_team(players)
+
+                self._connection.set_team_name(team_id, guild.name)
+                self._connection.give_guild_team_permissions(guild.id, team_id)
+
+            # The guild has changed names
+            else:
+                team_id, _ = self._connection.add_team(players)
+
+                self._connection.update_guild_name(guild.id, guild.name)
+                self._connection.set_team_name(team_id, guild.name)
+        
+        return team_id
 
     @staticmethod
     def _temp_download_file(url):
