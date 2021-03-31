@@ -71,7 +71,7 @@ class BotDB:
 
         return match_type_id[0]
 
-    def _get_team_id(self, players):
+    def get_team_id(self, players):
         curs = self._connection.cursor()
         team_sets = []
         player_ids = []
@@ -171,6 +171,23 @@ class BotDB:
         self._connection.commit()
 
         return match_id, True
+
+    def add_player_to_team(self, team_id, player_name):
+        player_id = self._get_player_id(player_name)
+
+        curs = self._connection.cursor()
+
+        curs.execute(queries.select_team_from_player, (player_id,))
+        team_ids = curs.fetchall()
+
+        for fetched_team_id in team_ids:
+            if fetched_team_id[0] == team_id:
+                return
+        
+        curs.execute(queries.insert_player_into_team, (team_id, player_id))
+
+        curs.close()
+        self._connection.commit()
 
     def add_statistic(self, player: str,
                              match_id: int, 

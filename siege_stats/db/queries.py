@@ -40,6 +40,7 @@ select_team_name_from_id = "SELECT team_name FROM team_names WHERE team_id=%s;"
 insert_team = "INSERT INTO teams(team_id, player_id) values(%s, %s);"
 insert_team_name = "INSERT INTO team_names(team_id, team_name) values(%s, %s);"
 insert_team_player = "INSERT INTO teams(player_id) values(%s) RETURNING team_id;"
+insert_player_into_team = "INSERT INTO teams(team_id, player_id) values(%s, %s);"
 update_team_name = "UPDATE team_names SET team_name=%s WHERE team_id=%s;"
 
 # Stats Queries

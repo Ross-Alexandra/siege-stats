@@ -3,26 +3,26 @@ SEP=,
 -
 ,MATCH OVERVIEW
 ,Match ID,Timestamp,Team 1,Team 2,Gamemode,Map,Winner,Team 1 Score,Team 2 Score,ATK at Start,Team 1 ATK Wins,Team 1 DEF Wins,Team 2 ATK Wins,Team 2 DEF Wins,Team 1 Score at Half,Team 2 Score at Half
-1,Tester_0000000000005,March 21 2021 19:46,Blue,Orange,Custom Comp,Villa,Blue,7,1,Orange,2,5,1,0,5,1
+1,Tester_0000000000009,March 21 2021 19:46,Blue,Orange,Custom Comp,Villa,Blue,7,1,Orange,2,5,1,0,5,1
 -
 ,MATCH PERFORMANCE
 ,Match ID,Team,Player,Player Rating,ATK Rating,DEF Rating,K-D (+/-),Entry (+/-),Trade Diff.,KOST,KPR,SRV,HS%,ATK Op,DEF Op,Kills,Refrags,Headshots,Underdog Kills,1vX,Multikill Rounds,Deaths,Traded Deaths,Traded by Enemy,Opening Kills,Opening Deaths,Entry Kills,Entry Deaths,Planted Defuser,Disabled Defuser,Teamkills,Teamkilled,In-game Points,
-1,Tester_0000000000005,Blue,player1,0.76,1.24,0.60,4-5 (-1),1-0 (+1),-1,0.38,0.50,0.38,25%,Ash,Melusi,4,0,1,0,0,2,5,0,0,1,0,1,0,0,0,0,0,4485,
-2,Tester_0000000000005,Blue,player2,1.68,1.58,1.70,10-3 (+7),1-0 (+1),+6,0.88,1.25,0.63,50%,Zofia,Jäger,10,3,5,1,1,3,3,0,1,1,0,1,2,0,0,0,0,5440,
-3,Tester_0000000000005,Blue,player3,1.80,2.43,1.59,11-3 (+8),1-0 (+1),+9,1,1.38,0.63,55%,Gridlock,Mute,11,0,6,3,0,3,3,2,1,1,0,2,0,0,0,0,0,5538,
-4,Tester_0000000000005,Blue,player4,1.05,1.02,1.04,3-3 (+0),3-1 (+2),+0,0.88,0.38,0.63,100%,Thermite,Aruni,3,0,3,0,0,0,3,0,0,3,1,3,3,1,0,0,0,4890,
-5,Tester_0000000000005,Blue,player5,1.20,1.11,1.23,7-5 (+2),1-0 (+1),+1,0.75,0.88,0.38,57%,IQ,Bandit,7,0,4,1,0,2,5,1,2,1,0,1,2,0,0,0,0,5048,
-6,Tester_0000000000005,Orange,player6,0.32,0.21,0.63,1-7 (-6),0-0 (+0),-6,0.25,0.13,0.13,100%,-,-,1,1,1,1,0,0,7,0,0,0,0,1,0,1,0,0,0,1094,
-7,Tester_0000000000005,Orange,player7,0.27,0.35,0.03,0-7 (-7),0-1 (-1),-5,0.38,0.00,0.13,0%,-,-,0,0,0,0,0,0,7,2,0,0,1,0,2,0,0,0,0,1235,
-8,Tester_0000000000005,Orange,player8,0.96,1.27,0.04,7-7 (+0),0-0 (+0),-2,0.5,0.88,0.13,29%,-,-,7,3,2,4,0,2,7,0,2,0,0,3,0,0,0,0,0,1926,
-9,Tester_0000000000005,Orange,player9,1.20,1.27,0.99,9-7 (+2),1-0 (+1),+2,0.63,1.13,0.13,44%,-,-,9,0,4,4,0,3,7,1,1,1,0,2,0,0,0,0,0,2005,
-10,Tester_0000000000005,Orange,player10,0.42,0.29,0.86,2-7 (-5),0-6 (-6),-4,0.38,0.25,0.13,100%,-,-,2,0,2,1,0,0,7,1,0,0,6,1,6,0,0,0,0,1205,
+1,Tester_0000000000009,Blue,player1,0.76,1.24,0.60,4-5 (-1),1-0 (+1),-1,0.38,0.50,0.38,25%,Ash,Melusi,4,0,1,0,0,2,5,0,0,1,0,1,0,0,0,0,0,4485,
+2,Tester_0000000000009,Blue,player0,1.68,1.58,1.70,10-3 (+7),1-0 (+1),+6,0.88,1.25,0.63,50%,Zofia,Jäger,10,3,5,1,1,3,3,0,1,1,0,1,2,0,0,0,0,5440,
+3,Tester_0000000000009,Blue,player3,1.80,2.43,1.59,11-3 (+8),1-0 (+1),+9,1,1.38,0.63,55%,Gridlock,Mute,11,0,6,3,0,3,3,2,1,1,0,2,0,0,0,0,0,5538,
+4,Tester_0000000000009,Blue,player4,1.05,1.02,1.04,3-3 (+0),3-1 (+2),+0,0.88,0.38,0.63,100%,Thermite,Aruni,3,0,3,0,0,0,3,0,0,3,1,3,3,1,0,0,0,4890,
+5,Tester_0000000000009,Blue,player5,1.20,1.11,1.23,7-5 (+2),1-0 (+1),+1,0.75,0.88,0.38,57%,IQ,Bandit,7,0,4,1,0,2,5,1,2,1,0,1,2,0,0,0,0,5048,
+6,Tester_0000000000009,Orange,player6,0.32,0.21,0.63,1-7 (-6),0-0 (+0),-6,0.25,0.13,0.13,100%,-,-,1,1,1,1,0,0,7,0,0,0,0,1,0,1,0,0,0,1094,
+7,Tester_0000000000009,Orange,player7,0.27,0.35,0.03,0-7 (-7),0-1 (-1),-5,0.38,0.00,0.13,0%,-,-,0,0,0,0,0,0,7,2,0,0,1,0,2,0,0,0,0,1235,
+8,Tester_0000000000009,Orange,player8,0.96,1.27,0.04,7-7 (+0),0-0 (+0),-2,0.5,0.88,0.13,29%,-,-,7,3,2,4,0,2,7,0,2,0,0,3,0,0,0,0,0,1926,
+9,Tester_0000000000009,Orange,player9,1.20,1.27,0.99,9-7 (+2),1-0 (+1),+2,0.63,1.13,0.13,44%,-,-,9,0,4,4,0,3,7,1,1,1,0,2,0,0,0,0,0,2005,
+10,Tester_0000000000009,Orange,player10,0.42,0.29,0.86,2-7 (-5),0-6 (-6),-4,0.38,0.25,0.13,100%,-,-,2,0,2,1,0,0,7,1,0,0,6,1,6,0,0,0,0,1205,
 -
 ,SIXTH PICK OVERVIEW
 ,Match ID,Round,Team,Player,From,To,Winner,
-1,Tester_0000000000005,1,Blue,player5,unknown,Bandit,Blue,
-2,Tester_0000000000005,3,Blue,player5,Bandit,Lesion,Blue,
-3,Tester_0000000000005,7,Blue,player1,Hibana,Ash,Blue,
+1,Tester_0000000000009,1,Blue,player5,unknown,Bandit,Blue,
+2,Tester_0000000000009,3,Blue,player5,Bandit,Lesion,Blue,
+3,Tester_0000000000009,7,Blue,player1,Hibana,Ash,Blue,
 4,
 5,
 6,
@@ -53,86 +53,86 @@ SEP=,
 -,
 ,PLAYER ROUNDS DATA
 ,Match ID,Team,Player,Round,Map,Site,Side,Result,Round Time (ms),Victory Type,Operator,Time Spent Alive (ms),Kills,Refrags,Headshots,Underdog Kills,1vX,Death,Traded Death,Refragged By,Traded by Enemy,Opening Kill,Opening Death,Entry Kill,Entry Death,Planted Defuser,Disabled Defuser,Teamkills,Teamkilled,In-game Points,
-1,Tester_0000000000005,Orange,player7,1,Villa,aviator_games,Defence,Loss,218122,Time Limit Reached,-,150437,0,0,0,0,0,1,1,player8,0,0,0,0,0,0,0,0,0,165,
-2,Tester_0000000000005,Orange,player7,2,Villa,trophy_statuary,Attack,Loss,153833,Time Limit Reached,-,146314,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,65,
-3,Tester_0000000000005,Orange,player7,3,Villa,dining_kitchen,Attack,Loss,222198,Time Limit Reached,-,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,70,
-4,Tester_0000000000005,Orange,player7,4,Villa,aviator_games,Attack,Loss,209186,Time Limit Reached,-,207266,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,40,
-5,Tester_0000000000005,Orange,player7,5,Villa,trophy_statuary,Attack,Win,185558,Defuser Planted,-,127550,0,0,0,0,0,1,0,-,0,0,0,0,1,0,0,0,0,185,
-6,Tester_0000000000005,Orange,player7,6,Villa,trophy_statuary,Attack,Loss,221097,Time Limit Reached,-,198398,0,0,0,0,0,1,1,player8,0,0,0,0,0,0,0,0,0,185,
-7,Tester_0000000000005,Orange,player7,7,Villa,trophy_statuary,Defence,Loss,99302,Time Limit Reached,-,68409,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,170,
-8,Tester_0000000000005,Orange,player7,8,Villa,unknown,Defence,Loss,209423,Defuser Planted,-,159378,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,355,
-9,Tester_0000000000005,Blue,player1,1,Villa,aviator_games,Defence,Win,218122,Time Limit Reached,Melusi,93032,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,200,
-10,Tester_0000000000005,Blue,player1,2,Villa,trophy_statuary,Defence,Win,153833,Time Limit Reached,Melusi,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,270,
-11,Tester_0000000000005,Blue,player1,3,Villa,dining_kitchen,Defence,Win,222198,Time Limit Reached,Melusi,148806,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,285,
-12,Tester_0000000000005,Blue,player1,4,Villa,aviator_games,Defence,Win,209186,Time Limit Reached,Melusi,-,2,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,505,
-13,Tester_0000000000005,Blue,player1,5,Villa,trophy_statuary,Defence,Loss,185558,Defuser Planted,Melusi,119080,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,100,
-14,Tester_0000000000005,Blue,player1,6,Villa,trophy_statuary,Defence,Win,221097,Time Limit Reached,Melusi,206424,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,280,
-15,Tester_0000000000005,Blue,player1,7,Villa,trophy_statuary,Attack,Win,99302,Time Limit Reached,Ash,-,2,0,1,0,0,0,0,-,0,1,0,1,0,0,0,0,0,310,
-16,Tester_0000000000005,Blue,player1,8,Villa,unknown,Attack,Win,209423,Defuser Planted,Ash,158147,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,2535,
-17,Tester_0000000000005,Blue,player2,1,Villa,aviator_games,Defence,Win,218122,Time Limit Reached,Jäger,-,2,1,1,1,1,0,0,-,0,0,0,0,0,0,0,0,0,490,
-18,Tester_0000000000005,Blue,player2,2,Villa,trophy_statuary,Defence,Win,153833,Time Limit Reached,Jäger,-,1,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,380,
-19,Tester_0000000000005,Blue,player2,3,Villa,dining_kitchen,Defence,Win,222198,Time Limit Reached,Jäger,-,1,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,295,
-20,Tester_0000000000005,Blue,player2,4,Villa,aviator_games,Defence,Win,209186,Time Limit Reached,Jäger,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,345,
-21,Tester_0000000000005,Blue,player2,5,Villa,trophy_statuary,Defence,Loss,185558,Defuser Planted,Jäger,208841,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,140,
-22,Tester_0000000000005,Blue,player2,6,Villa,trophy_statuary,Defence,Win,221097,Time Limit Reached,Jäger,-,3,2,1,0,0,0,0,-,0,0,0,0,0,0,0,0,0,650,
-23,Tester_0000000000005,Blue,player2,7,Villa,trophy_statuary,Attack,Win,99302,Time Limit Reached,Zofia,85912,2,0,2,0,0,1,0,-,0,0,0,0,1,0,0,0,0,415,
-24,Tester_0000000000005,Blue,player2,8,Villa,unknown,Attack,Win,209423,Defuser Planted,Zofia,112013,1,0,1,0,0,1,0,-,1,1,0,1,1,0,0,0,0,2725,
-25,Tester_0000000000005,Orange,player10,1,Villa,aviator_games,Defence,Loss,218122,Time Limit Reached,-,67405,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,10,
-26,Tester_0000000000005,Orange,player10,2,Villa,trophy_statuary,Attack,Loss,153833,Time Limit Reached,-,124975,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,60,
-27,Tester_0000000000005,Orange,player10,3,Villa,dining_kitchen,Attack,Loss,222198,Time Limit Reached,-,97213,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,10,
-28,Tester_0000000000005,Orange,player10,4,Villa,aviator_games,Attack,Loss,209186,Time Limit Reached,-,73785,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,20,
-29,Tester_0000000000005,Orange,player10,5,Villa,trophy_statuary,Attack,Win,185558,Defuser Planted,-,-,1,0,1,0,0,0,0,-,0,0,0,0,0,0,0,0,0,320,
-30,Tester_0000000000005,Orange,player10,6,Villa,trophy_statuary,Attack,Loss,221097,Time Limit Reached,-,190200,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,265,
-31,Tester_0000000000005,Orange,player10,7,Villa,trophy_statuary,Defence,Loss,99302,Time Limit Reached,-,99237,1,0,1,1,0,1,0,-,0,0,0,1,0,0,0,0,0,260,
-32,Tester_0000000000005,Orange,player10,8,Villa,unknown,Defence,Loss,209423,Defuser Planted,-,105469,0,0,0,0,0,1,1,player6,0,0,1,0,1,0,0,0,0,260,
-33,Tester_0000000000005,Blue,player3,1,Villa,aviator_games,Defence,Win,218122,Time Limit Reached,Mute,214415,1,0,0,0,0,1,1,player2,1,0,0,0,0,0,0,0,0,348,
-34,Tester_0000000000005,Blue,player3,2,Villa,trophy_statuary,Defence,Win,153833,Time Limit Reached,Mute,-,2,0,1,0,0,0,0,-,0,1,0,1,0,0,0,0,0,550,
-35,Tester_0000000000005,Blue,player3,3,Villa,dining_kitchen,Defence,Win,222198,Time Limit Reached,Mute,-,2,0,2,1,0,0,0,-,0,0,0,0,0,0,0,0,0,410,
-36,Tester_0000000000005,Blue,player3,4,Villa,aviator_games,Defence,Win,209186,Time Limit Reached,Mute,-,1,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,490,
-37,Tester_0000000000005,Blue,player3,5,Villa,trophy_statuary,Defence,Loss,185558,Defuser Planted,Mute,175342,1,0,0,1,0,1,0,-,0,0,0,1,0,0,0,0,0,280,
-38,Tester_0000000000005,Blue,player3,6,Villa,trophy_statuary,Defence,Win,221097,Time Limit Reached,Mute,214115,0,0,0,0,0,1,1,player2,0,0,0,0,0,0,0,0,0,360,
-39,Tester_0000000000005,Blue,player3,7,Villa,trophy_statuary,Attack,Win,99302,Time Limit Reached,Gridlock,-,1,0,1,0,0,0,0,-,0,0,0,0,0,0,0,0,0,305,
-40,Tester_0000000000005,Blue,player3,8,Villa,unknown,Attack,Win,209423,Defuser Planted,Gridlock,-,3,0,2,1,0,0,0,-,0,0,0,0,0,0,0,0,0,2795,
-41,Tester_0000000000005,Blue,player4,1,Villa,aviator_games,Defence,Win,218122,Time Limit Reached,Aruni,77413,1,0,1,0,0,1,0,-,0,1,0,1,1,0,0,0,0,555,
-42,Tester_0000000000005,Blue,player4,2,Villa,trophy_statuary,Defence,Win,153833,Time Limit Reached,Aruni,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,350,
-43,Tester_0000000000005,Blue,player4,3,Villa,dining_kitchen,Defence,Win,222198,Time Limit Reached,Aruni,-,1,0,1,0,0,0,0,-,0,1,0,1,0,0,0,0,0,350,
-44,Tester_0000000000005,Blue,player4,4,Villa,aviator_games,Defence,Win,209186,Time Limit Reached,Aruni,168169,1,0,1,0,0,1,0,-,0,1,0,1,1,0,0,0,0,420,
-45,Tester_0000000000005,Blue,player4,5,Villa,trophy_statuary,Defence,Loss,185558,Defuser Planted,Aruni,117401,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,190,
-46,Tester_0000000000005,Blue,player4,6,Villa,trophy_statuary,Defence,Win,221097,Time Limit Reached,Aruni,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,385,
-47,Tester_0000000000005,Blue,player4,7,Villa,trophy_statuary,Attack,Win,99302,Time Limit Reached,Thermite,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,120,
-48,Tester_0000000000005,Blue,player4,8,Villa,unknown,Attack,Win,209423,Defuser Planted,Thermite,-,0,0,0,0,0,0,0,-,0,0,0,0,0,1,0,0,0,2520,
-49,Tester_0000000000005,Blue,player5,1,Villa,aviator_games,Defence,Win,218122,Time Limit Reached,Bandit,151817,1,0,0,1,0,1,0,-,1,0,0,0,0,0,0,0,0,360,
-50,Tester_0000000000005,Blue,player5,2,Villa,trophy_statuary,Defence,Win,153833,Time Limit Reached,Bandit,-,2,0,2,0,0,0,0,-,0,0,0,0,0,0,0,0,0,560,
-51,Tester_0000000000005,Blue,player5,3,Villa,dining_kitchen,Defence,Win,222198,Time Limit Reached,Lesion,109026,0,0,0,0,0,1,0,-,0,0,0,0,1,0,0,0,0,220,
-52,Tester_0000000000005,Blue,player5,4,Villa,aviator_games,Defence,Win,209186,Time Limit Reached,Bandit,-,1,0,1,0,0,0,0,-,0,0,0,0,0,0,0,0,0,455,
-53,Tester_0000000000005,Blue,player5,5,Villa,trophy_statuary,Defence,Loss,185558,Defuser Planted,Bandit,169770,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,145,
-54,Tester_0000000000005,Blue,player5,6,Villa,trophy_statuary,Defence,Win,221097,Time Limit Reached,Lesion,200862,2,0,1,0,0,1,1,player2,1,1,0,1,1,0,0,0,0,585,
-55,Tester_0000000000005,Blue,player5,7,Villa,trophy_statuary,Attack,Win,99302,Time Limit Reached,IQ,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,228,
-56,Tester_0000000000005,Blue,player5,8,Villa,unknown,Attack,Win,209423,Defuser Planted,IQ,141553,1,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,2495,
-57,Tester_0000000000005,Orange,player6,1,Villa,aviator_games,Attack,Loss,218122,Time Limit Reached,-,205383,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,40,
-58,Tester_0000000000005,Orange,player6,2,Villa,trophy_statuary,Attack,Loss,153833,Time Limit Reached,-,149337,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,12,
-59,Tester_0000000000005,Orange,player6,3,Villa,dining_kitchen,Attack,Loss,222198,Time Limit Reached,-,172846,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,20,
-60,Tester_0000000000005,Orange,player6,4,Villa,aviator_games,Attack,Loss,209186,Time Limit Reached,-,209104,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,82,
-61,Tester_0000000000005,Orange,player6,5,Villa,trophy_statuary,Attack,Win,185558,Defuser Planted,-,-,0,0,0,0,0,0,0,-,0,0,0,0,0,1,0,0,0,393,
-62,Tester_0000000000005,Orange,player6,6,Villa,trophy_statuary,Attack,Loss,221097,Time Limit Reached,-,218780,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,47,
-63,Tester_0000000000005,Orange,player6,7,Villa,trophy_statuary,Defence,Loss,99302,Time Limit Reached,-,77831,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,110,
-64,Tester_0000000000005,Orange,player6,8,Villa,unknown,Defence,Loss,209423,Defuser Planted,-,198135,1,1,1,1,0,1,0,-,0,0,0,1,0,0,0,0,0,390,
-65,Tester_0000000000005,Orange,player8,1,Villa,aviator_games,Attack,Loss,218122,Time Limit Reached,-,217990,3,2,0,2,0,1,0,-,1,0,0,1,0,0,0,0,0,400,
-66,Tester_0000000000005,Orange,player8,2,Villa,trophy_statuary,Attack,Loss,153833,Time Limit Reached,-,153734,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,10,
-67,Tester_0000000000005,Orange,player8,3,Villa,dining_kitchen,Attack,Loss,222198,Time Limit Reached,-,184258,2,0,1,1,0,1,0,-,0,0,0,1,0,0,0,0,0,417,
-68,Tester_0000000000005,Orange,player8,4,Villa,aviator_games,Attack,Loss,209186,Time Limit Reached,-,187619,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,40,
-69,Tester_0000000000005,Orange,player8,5,Villa,trophy_statuary,Attack,Win,185558,Defuser Planted,-,-,1,0,1,0,0,0,0,-,0,0,0,0,0,0,0,0,0,390,
-70,Tester_0000000000005,Orange,player8,6,Villa,trophy_statuary,Attack,Loss,221097,Time Limit Reached,-,202391,1,1,0,1,0,1,0,-,1,0,0,1,0,0,0,0,0,174,
-71,Tester_0000000000005,Orange,player8,7,Villa,trophy_statuary,Defence,Loss,99302,Time Limit Reached,-,71212,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,120,
-72,Tester_0000000000005,Orange,player8,8,Villa,unknown,Defence,Loss,209423,Defuser Planted,-,107527,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,375,
-73,Tester_0000000000005,Orange,player9,1,Villa,aviator_games,Attack,Loss,218122,Time Limit Reached,-,210874,1,0,1,0,0,1,1,player8,0,0,0,0,0,0,0,0,0,160,
-74,Tester_0000000000005,Orange,player9,2,Villa,trophy_statuary,Attack,Loss,153833,Time Limit Reached,-,151490,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,20,
-75,Tester_0000000000005,Orange,player9,3,Villa,dining_kitchen,Attack,Loss,222198,Time Limit Reached,-,175977,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,30,
-76,Tester_0000000000005,Orange,player9,4,Villa,aviator_games,Attack,Loss,209186,Time Limit Reached,-,207716,1,0,0,1,0,1,0,-,0,0,0,1,0,0,0,0,0,180,
-77,Tester_0000000000005,Orange,player9,5,Villa,trophy_statuary,Attack,Win,185558,Defuser Planted,-,-,3,0,3,0,0,0,0,-,0,1,0,1,0,0,0,0,0,645,
-78,Tester_0000000000005,Orange,player9,6,Villa,trophy_statuary,Attack,Loss,221097,Time Limit Reached,-,221087,2,0,0,2,0,1,0,-,1,0,0,0,0,0,0,0,0,265,
-79,Tester_0000000000005,Orange,player9,7,Villa,trophy_statuary,Defence,Loss,99302,Time Limit Reached,-,71848,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,165,
-80,Tester_0000000000005,Orange,player9,8,Villa,unknown,Defence,Loss,209423,Defuser Planted,-,226852,2,0,0,1,0,1,0,-,0,0,0,0,0,0,0,0,0,540,
+1,Tester_0000000000009,Orange,player7,1,Villa,aviator_games,Defence,Loss,218122,Time Limit Reached,-,150437,0,0,0,0,0,1,1,player8,0,0,0,0,0,0,0,0,0,165,
+2,Tester_0000000000009,Orange,player7,2,Villa,trophy_statuary,Attack,Loss,153833,Time Limit Reached,-,146314,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,65,
+3,Tester_0000000000009,Orange,player7,3,Villa,dining_kitchen,Attack,Loss,222198,Time Limit Reached,-,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,70,
+4,Tester_0000000000009,Orange,player7,4,Villa,aviator_games,Attack,Loss,209186,Time Limit Reached,-,207266,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,40,
+5,Tester_0000000000009,Orange,player7,5,Villa,trophy_statuary,Attack,Win,185558,Defuser Planted,-,127550,0,0,0,0,0,1,0,-,0,0,0,0,1,0,0,0,0,185,
+6,Tester_0000000000009,Orange,player7,6,Villa,trophy_statuary,Attack,Loss,221097,Time Limit Reached,-,198398,0,0,0,0,0,1,1,player8,0,0,0,0,0,0,0,0,0,185,
+7,Tester_0000000000009,Orange,player7,7,Villa,trophy_statuary,Defence,Loss,99302,Time Limit Reached,-,68409,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,170,
+8,Tester_0000000000009,Orange,player7,8,Villa,unknown,Defence,Loss,209423,Defuser Planted,-,159378,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,355,
+9,Tester_0000000000009,Blue,player1,1,Villa,aviator_games,Defence,Win,218122,Time Limit Reached,Melusi,93032,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,200,
+10,Tester_0000000000009,Blue,player1,2,Villa,trophy_statuary,Defence,Win,153833,Time Limit Reached,Melusi,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,270,
+11,Tester_0000000000009,Blue,player1,3,Villa,dining_kitchen,Defence,Win,222198,Time Limit Reached,Melusi,148806,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,285,
+12,Tester_0000000000009,Blue,player1,4,Villa,aviator_games,Defence,Win,209186,Time Limit Reached,Melusi,-,2,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,505,
+13,Tester_0000000000009,Blue,player1,5,Villa,trophy_statuary,Defence,Loss,185558,Defuser Planted,Melusi,119080,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,100,
+14,Tester_0000000000009,Blue,player1,6,Villa,trophy_statuary,Defence,Win,221097,Time Limit Reached,Melusi,206424,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,280,
+15,Tester_0000000000009,Blue,player1,7,Villa,trophy_statuary,Attack,Win,99302,Time Limit Reached,Ash,-,2,0,1,0,0,0,0,-,0,1,0,1,0,0,0,0,0,310,
+16,Tester_0000000000009,Blue,player1,8,Villa,unknown,Attack,Win,209423,Defuser Planted,Ash,158147,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,2535,
+17,Tester_0000000000009,Blue,player0,1,Villa,aviator_games,Defence,Win,218122,Time Limit Reached,Jäger,-,2,1,1,1,1,0,0,-,0,0,0,0,0,0,0,0,0,490,
+18,Tester_0000000000009,Blue,player0,2,Villa,trophy_statuary,Defence,Win,153833,Time Limit Reached,Jäger,-,1,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,380,
+19,Tester_0000000000009,Blue,player0,3,Villa,dining_kitchen,Defence,Win,222198,Time Limit Reached,Jäger,-,1,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,295,
+20,Tester_0000000000009,Blue,player0,4,Villa,aviator_games,Defence,Win,209186,Time Limit Reached,Jäger,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,345,
+21,Tester_0000000000009,Blue,player0,5,Villa,trophy_statuary,Defence,Loss,185558,Defuser Planted,Jäger,208841,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,140,
+22,Tester_0000000000009,Blue,player0,6,Villa,trophy_statuary,Defence,Win,221097,Time Limit Reached,Jäger,-,3,2,1,0,0,0,0,-,0,0,0,0,0,0,0,0,0,650,
+23,Tester_0000000000009,Blue,player0,7,Villa,trophy_statuary,Attack,Win,99302,Time Limit Reached,Zofia,85912,2,0,2,0,0,1,0,-,0,0,0,0,1,0,0,0,0,415,
+24,Tester_0000000000009,Blue,player0,8,Villa,unknown,Attack,Win,209423,Defuser Planted,Zofia,112013,1,0,1,0,0,1,0,-,1,1,0,1,1,0,0,0,0,2725,
+25,Tester_0000000000009,Orange,player10,1,Villa,aviator_games,Defence,Loss,218122,Time Limit Reached,-,67405,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,10,
+26,Tester_0000000000009,Orange,player10,2,Villa,trophy_statuary,Attack,Loss,153833,Time Limit Reached,-,124975,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,60,
+27,Tester_0000000000009,Orange,player10,3,Villa,dining_kitchen,Attack,Loss,222198,Time Limit Reached,-,97213,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,10,
+28,Tester_0000000000009,Orange,player10,4,Villa,aviator_games,Attack,Loss,209186,Time Limit Reached,-,73785,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,20,
+29,Tester_0000000000009,Orange,player10,5,Villa,trophy_statuary,Attack,Win,185558,Defuser Planted,-,-,1,0,1,0,0,0,0,-,0,0,0,0,0,0,0,0,0,320,
+30,Tester_0000000000009,Orange,player10,6,Villa,trophy_statuary,Attack,Loss,221097,Time Limit Reached,-,190200,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,265,
+31,Tester_0000000000009,Orange,player10,7,Villa,trophy_statuary,Defence,Loss,99302,Time Limit Reached,-,99237,1,0,1,1,0,1,0,-,0,0,0,1,0,0,0,0,0,260,
+32,Tester_0000000000009,Orange,player10,8,Villa,unknown,Defence,Loss,209423,Defuser Planted,-,105469,0,0,0,0,0,1,1,player6,0,0,1,0,1,0,0,0,0,260,
+33,Tester_0000000000009,Blue,player3,1,Villa,aviator_games,Defence,Win,218122,Time Limit Reached,Mute,214415,1,0,0,0,0,1,1,player0,1,0,0,0,0,0,0,0,0,348,
+34,Tester_0000000000009,Blue,player3,2,Villa,trophy_statuary,Defence,Win,153833,Time Limit Reached,Mute,-,2,0,1,0,0,0,0,-,0,1,0,1,0,0,0,0,0,550,
+35,Tester_0000000000009,Blue,player3,3,Villa,dining_kitchen,Defence,Win,222198,Time Limit Reached,Mute,-,2,0,2,1,0,0,0,-,0,0,0,0,0,0,0,0,0,410,
+36,Tester_0000000000009,Blue,player3,4,Villa,aviator_games,Defence,Win,209186,Time Limit Reached,Mute,-,1,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,490,
+37,Tester_0000000000009,Blue,player3,5,Villa,trophy_statuary,Defence,Loss,185558,Defuser Planted,Mute,175342,1,0,0,1,0,1,0,-,0,0,0,1,0,0,0,0,0,280,
+38,Tester_0000000000009,Blue,player3,6,Villa,trophy_statuary,Defence,Win,221097,Time Limit Reached,Mute,214115,0,0,0,0,0,1,1,player0,0,0,0,0,0,0,0,0,0,360,
+39,Tester_0000000000009,Blue,player3,7,Villa,trophy_statuary,Attack,Win,99302,Time Limit Reached,Gridlock,-,1,0,1,0,0,0,0,-,0,0,0,0,0,0,0,0,0,305,
+40,Tester_0000000000009,Blue,player3,8,Villa,unknown,Attack,Win,209423,Defuser Planted,Gridlock,-,3,0,2,1,0,0,0,-,0,0,0,0,0,0,0,0,0,2795,
+41,Tester_0000000000009,Blue,player4,1,Villa,aviator_games,Defence,Win,218122,Time Limit Reached,Aruni,77413,1,0,1,0,0,1,0,-,0,1,0,1,1,0,0,0,0,555,
+42,Tester_0000000000009,Blue,player4,2,Villa,trophy_statuary,Defence,Win,153833,Time Limit Reached,Aruni,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,350,
+43,Tester_0000000000009,Blue,player4,3,Villa,dining_kitchen,Defence,Win,222198,Time Limit Reached,Aruni,-,1,0,1,0,0,0,0,-,0,1,0,1,0,0,0,0,0,350,
+44,Tester_0000000000009,Blue,player4,4,Villa,aviator_games,Defence,Win,209186,Time Limit Reached,Aruni,168169,1,0,1,0,0,1,0,-,0,1,0,1,1,0,0,0,0,420,
+45,Tester_0000000000009,Blue,player4,5,Villa,trophy_statuary,Defence,Loss,185558,Defuser Planted,Aruni,117401,0,0,0,0,0,1,0,-,0,0,1,0,1,0,0,0,0,190,
+46,Tester_0000000000009,Blue,player4,6,Villa,trophy_statuary,Defence,Win,221097,Time Limit Reached,Aruni,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,385,
+47,Tester_0000000000009,Blue,player4,7,Villa,trophy_statuary,Attack,Win,99302,Time Limit Reached,Thermite,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,120,
+48,Tester_0000000000009,Blue,player4,8,Villa,unknown,Attack,Win,209423,Defuser Planted,Thermite,-,0,0,0,0,0,0,0,-,0,0,0,0,0,1,0,0,0,2520,
+49,Tester_0000000000009,Blue,player5,1,Villa,aviator_games,Defence,Win,218122,Time Limit Reached,Bandit,151817,1,0,0,1,0,1,0,-,1,0,0,0,0,0,0,0,0,360,
+50,Tester_0000000000009,Blue,player5,2,Villa,trophy_statuary,Defence,Win,153833,Time Limit Reached,Bandit,-,2,0,2,0,0,0,0,-,0,0,0,0,0,0,0,0,0,560,
+51,Tester_0000000000009,Blue,player5,3,Villa,dining_kitchen,Defence,Win,222198,Time Limit Reached,Lesion,109026,0,0,0,0,0,1,0,-,0,0,0,0,1,0,0,0,0,220,
+52,Tester_0000000000009,Blue,player5,4,Villa,aviator_games,Defence,Win,209186,Time Limit Reached,Bandit,-,1,0,1,0,0,0,0,-,0,0,0,0,0,0,0,0,0,455,
+53,Tester_0000000000009,Blue,player5,5,Villa,trophy_statuary,Defence,Loss,185558,Defuser Planted,Bandit,169770,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,145,
+54,Tester_0000000000009,Blue,player5,6,Villa,trophy_statuary,Defence,Win,221097,Time Limit Reached,Lesion,200862,2,0,1,0,0,1,1,player0,1,1,0,1,1,0,0,0,0,585,
+55,Tester_0000000000009,Blue,player5,7,Villa,trophy_statuary,Attack,Win,99302,Time Limit Reached,IQ,-,0,0,0,0,0,0,0,-,0,0,0,0,0,0,0,0,0,228,
+56,Tester_0000000000009,Blue,player5,8,Villa,unknown,Attack,Win,209423,Defuser Planted,IQ,141553,1,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,2495,
+57,Tester_0000000000009,Orange,player6,1,Villa,aviator_games,Attack,Loss,218122,Time Limit Reached,-,205383,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,40,
+58,Tester_0000000000009,Orange,player6,2,Villa,trophy_statuary,Attack,Loss,153833,Time Limit Reached,-,149337,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,12,
+59,Tester_0000000000009,Orange,player6,3,Villa,dining_kitchen,Attack,Loss,222198,Time Limit Reached,-,172846,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,20,
+60,Tester_0000000000009,Orange,player6,4,Villa,aviator_games,Attack,Loss,209186,Time Limit Reached,-,209104,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,82,
+61,Tester_0000000000009,Orange,player6,5,Villa,trophy_statuary,Attack,Win,185558,Defuser Planted,-,-,0,0,0,0,0,0,0,-,0,0,0,0,0,1,0,0,0,393,
+62,Tester_0000000000009,Orange,player6,6,Villa,trophy_statuary,Attack,Loss,221097,Time Limit Reached,-,218780,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,47,
+63,Tester_0000000000009,Orange,player6,7,Villa,trophy_statuary,Defence,Loss,99302,Time Limit Reached,-,77831,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,110,
+64,Tester_0000000000009,Orange,player6,8,Villa,unknown,Defence,Loss,209423,Defuser Planted,-,198135,1,1,1,1,0,1,0,-,0,0,0,1,0,0,0,0,0,390,
+65,Tester_0000000000009,Orange,player8,1,Villa,aviator_games,Attack,Loss,218122,Time Limit Reached,-,217990,3,2,0,2,0,1,0,-,1,0,0,1,0,0,0,0,0,400,
+66,Tester_0000000000009,Orange,player8,2,Villa,trophy_statuary,Attack,Loss,153833,Time Limit Reached,-,153734,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,10,
+67,Tester_0000000000009,Orange,player8,3,Villa,dining_kitchen,Attack,Loss,222198,Time Limit Reached,-,184258,2,0,1,1,0,1,0,-,0,0,0,1,0,0,0,0,0,417,
+68,Tester_0000000000009,Orange,player8,4,Villa,aviator_games,Attack,Loss,209186,Time Limit Reached,-,187619,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,40,
+69,Tester_0000000000009,Orange,player8,5,Villa,trophy_statuary,Attack,Win,185558,Defuser Planted,-,-,1,0,1,0,0,0,0,-,0,0,0,0,0,0,0,0,0,390,
+70,Tester_0000000000009,Orange,player8,6,Villa,trophy_statuary,Attack,Loss,221097,Time Limit Reached,-,202391,1,1,0,1,0,1,0,-,1,0,0,1,0,0,0,0,0,174,
+71,Tester_0000000000009,Orange,player8,7,Villa,trophy_statuary,Defence,Loss,99302,Time Limit Reached,-,71212,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,120,
+72,Tester_0000000000009,Orange,player8,8,Villa,unknown,Defence,Loss,209423,Defuser Planted,-,107527,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,375,
+73,Tester_0000000000009,Orange,player9,1,Villa,aviator_games,Attack,Loss,218122,Time Limit Reached,-,210874,1,0,1,0,0,1,1,player8,0,0,0,0,0,0,0,0,0,160,
+74,Tester_0000000000009,Orange,player9,2,Villa,trophy_statuary,Attack,Loss,153833,Time Limit Reached,-,151490,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,20,
+75,Tester_0000000000009,Orange,player9,3,Villa,dining_kitchen,Attack,Loss,222198,Time Limit Reached,-,175977,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,30,
+76,Tester_0000000000009,Orange,player9,4,Villa,aviator_games,Attack,Loss,209186,Time Limit Reached,-,207716,1,0,0,1,0,1,0,-,0,0,0,1,0,0,0,0,0,180,
+77,Tester_0000000000009,Orange,player9,5,Villa,trophy_statuary,Attack,Win,185558,Defuser Planted,-,-,3,0,3,0,0,0,0,-,0,1,0,1,0,0,0,0,0,645,
+78,Tester_0000000000009,Orange,player9,6,Villa,trophy_statuary,Attack,Loss,221097,Time Limit Reached,-,221087,2,0,0,2,0,1,0,-,1,0,0,0,0,0,0,0,0,265,
+79,Tester_0000000000009,Orange,player9,7,Villa,trophy_statuary,Defence,Loss,99302,Time Limit Reached,-,71848,0,0,0,0,0,1,0,-,0,0,0,0,0,0,0,0,0,165,
+80,Tester_0000000000009,Orange,player9,8,Villa,unknown,Defence,Loss,209423,Defuser Planted,-,226852,2,0,0,1,0,1,0,-,0,0,0,0,0,0,0,0,0,540,
 81,
 82,
 83,
@@ -206,68 +206,68 @@ SEP=,
 -
 ,ROUND EVENTS BREAKDOWN
 ,Match ID,Round,Time into Round (ms),VOD Time,Team,Type,Actor,Victim,Blue Team Alive,Orange Team Alive,Kill Subtype,
-1,Tester_0000000000005,1,67405,02:38,Blue,kill,player4,player10,5,5,Entry Kill
-2,Tester_0000000000005,1,77413,02:28,Orange,kill,player8,player4,5,4,Entry Kill
-3,Tester_0000000000005,1,93032,02:12,Orange,kill,player9,player1,4,4,-
-4,Tester_0000000000005,1,150437,01:15,Blue,kill,player5,player7,3,4,-
-5,Tester_0000000000005,1,151817,01:13,Orange,kill,player8,player5,3,3,Refrag
-6,Tester_0000000000005,1,205383,00:20,Blue,kill,player2,player6,2,3,-
-7,Tester_0000000000005,1,210874,00:14,Blue,kill,player3,player9,2,2,-
-8,Tester_0000000000005,1,214415,00:11,Orange,kill,player8,player3,2,1,Refrag
-9,Tester_0000000000005,1,217990,00:07,Blue,kill,player2,player8,1,1,Refrag
-10,Tester_0000000000005,1,218122,00:07,Blue,Time Limit Reached,-,-,1,0,-
-11,Tester_0000000000005,2,124975,01:40,Blue,kill,player3,player10,5,5,Entry Kill
-12,Tester_0000000000005,2,146314,01:19,Blue,kill,player5,player7,5,4,-
-13,Tester_0000000000005,2,149337,01:16,Blue,kill,player5,player6,5,3,-
-14,Tester_0000000000005,2,151490,01:14,Blue,kill,player2,player9,5,2,-
-15,Tester_0000000000005,2,153734,01:11,Blue,kill,player3,player8,5,1,-
-16,Tester_0000000000005,2,153833,01:11,Blue,Time Limit Reached,-,-,5,0,-
-17,Tester_0000000000005,3,97213,02:08,Blue,kill,player4,player10,5,5,Entry Kill
-18,Tester_0000000000005,3,109026,01:56,Orange,kill,player8,player5,5,4,Entry Kill
-19,Tester_0000000000005,3,148806,01:16,Orange,kill,player8,player1,4,4,-
-20,Tester_0000000000005,3,172846,00:52,Blue,kill,player3,player6,3,4,-
-21,Tester_0000000000005,3,175977,00:49,Blue,kill,player3,player9,3,3,-
-22,Tester_0000000000005,3,184258,00:41,Blue,kill,player2,player8,3,2,-
-23,Tester_0000000000005,3,222198,00:03,Blue,Time Limit Reached,-,-,3,1,-
-24,Tester_0000000000005,4,73785,02:31,Blue,kill,player4,player10,5,5,Entry Kill
-25,Tester_0000000000005,4,168169,00:57,Orange,kill,player9,player4,5,4,Entry Kill
-26,Tester_0000000000005,4,187619,00:37,Blue,kill,player5,player8,4,4,-
-27,Tester_0000000000005,4,207266,00:18,Blue,kill,player1,player7,4,3,-
-28,Tester_0000000000005,4,207716,00:17,Blue,kill,player3,player9,4,2,-
-29,Tester_0000000000005,4,209104,00:16,Blue,kill,player1,player6,4,1,-
-30,Tester_0000000000005,4,209186,00:16,Blue,Time Limit Reached,-,-,4,0,-
-31,Tester_0000000000005,5,117401,01:48,Orange,kill,player9,player4,5,5,Entry Kill
-32,Tester_0000000000005,5,119080,01:46,Orange,kill,player9,player1,4,5,-
-33,Tester_0000000000005,5,127550,01:37,Blue,kill,player3,player7,3,5,Entry Kill
-34,Tester_0000000000005,5,169770,00:55,Orange,kill,player9,player5,3,4,-
-35,Tester_0000000000005,5,175342,00:50,Orange,kill,player8,player3,2,4,-
-36,Tester_0000000000005,5,185558,00:39,Orange,plant,player6,-,1,4,-
-37,Tester_0000000000005,5,208841,00:16,Orange,kill,player10,player2,1,4,-
-38,Tester_0000000000005,5,208922,00:16,Orange,Defuser Planted,-,-,0,4,-
-39,Tester_0000000000005,6,190200,00:35,Blue,kill,player5,player10,5,5,Entry Kill
-40,Tester_0000000000005,6,198398,00:27,Blue,kill,player5,player7,5,4,-
-41,Tester_0000000000005,6,200862,00:24,Orange,kill,player8,player5,5,3,Entry Kill
-42,Tester_0000000000005,6,202391,00:23,Blue,kill,player2,player8,4,3,Refrag
-43,Tester_0000000000005,6,206424,00:19,Orange,kill,player9,player1,4,2,-
-44,Tester_0000000000005,6,214115,00:11,Orange,kill,player9,player3,3,2,-
-45,Tester_0000000000005,6,218780,00:06,Blue,kill,player2,player6,2,2,-
-46,Tester_0000000000005,6,221087,00:04,Blue,kill,player2,player9,2,1,Refrag
-47,Tester_0000000000005,6,221097,00:04,Blue,Time Limit Reached,-,-,2,0,-
-48,Tester_0000000000005,7,68409,02:37,Blue,kill,player1,player7,5,5,Entry Kill
-49,Tester_0000000000005,7,71212,02:34,Blue,kill,player2,player8,5,4,-
-50,Tester_0000000000005,7,71848,02:33,Blue,kill,player2,player9,5,3,-
-51,Tester_0000000000005,7,77831,02:27,Blue,kill,player3,player6,5,2,-
-52,Tester_0000000000005,7,85912,02:19,Orange,kill,player10,player2,5,1,Entry Kill
-53,Tester_0000000000005,7,99237,02:06,Blue,kill,player1,player10,4,1,-
-54,Tester_0000000000005,7,99302,02:06,Blue,Time Limit Reached,-,-,4,0,-
-55,Tester_0000000000005,8,105469,02:00,Blue,kill,player2,player10,5,5,Entry Kill
-56,Tester_0000000000005,8,107527,01:57,Blue,kill,player5,player8,5,4,-
-57,Tester_0000000000005,8,112013,01:53,Orange,kill,player6,player2,5,3,Entry Kill
-58,Tester_0000000000005,8,141553,01:23,Orange,kill,player9,player5,4,3,-
-59,Tester_0000000000005,8,158147,01:07,Orange,kill,player9,player1,3,3,-
-60,Tester_0000000000005,8,159378,01:06,Blue,kill,player3,player7,2,3,-
-61,Tester_0000000000005,8,198135,00:27,Blue,kill,player3,player6,2,2,-
-62,Tester_0000000000005,8,209423,00:16,Blue,plant,player4,-,2,1,-
-63,Tester_0000000000005,8,226852,-00:02,Blue,kill,player3,player9,2,1,-
-64,Tester_0000000000005,8,226907,-00:02,Blue,Defuser Planted,-,-,2,0,-
+1,Tester_0000000000009,1,67405,02:38,Blue,kill,player4,player10,5,5,Entry Kill
+2,Tester_0000000000009,1,77413,02:28,Orange,kill,player8,player4,5,4,Entry Kill
+3,Tester_0000000000009,1,93032,02:12,Orange,kill,player9,player1,4,4,-
+4,Tester_0000000000009,1,150437,01:15,Blue,kill,player5,player7,3,4,-
+5,Tester_0000000000009,1,151817,01:13,Orange,kill,player8,player5,3,3,Refrag
+6,Tester_0000000000009,1,205383,00:20,Blue,kill,player0,player6,2,3,-
+7,Tester_0000000000009,1,210874,00:14,Blue,kill,player3,player9,2,2,-
+8,Tester_0000000000009,1,214415,00:11,Orange,kill,player8,player3,2,1,Refrag
+9,Tester_0000000000009,1,217990,00:07,Blue,kill,player0,player8,1,1,Refrag
+10,Tester_0000000000009,1,218122,00:07,Blue,Time Limit Reached,-,-,1,0,-
+11,Tester_0000000000009,2,124975,01:40,Blue,kill,player3,player10,5,5,Entry Kill
+12,Tester_0000000000009,2,146314,01:19,Blue,kill,player5,player7,5,4,-
+13,Tester_0000000000009,2,149337,01:16,Blue,kill,player5,player6,5,3,-
+14,Tester_0000000000009,2,151490,01:14,Blue,kill,player0,player9,5,2,-
+15,Tester_0000000000009,2,153734,01:11,Blue,kill,player3,player8,5,1,-
+16,Tester_0000000000009,2,153833,01:11,Blue,Time Limit Reached,-,-,5,0,-
+17,Tester_0000000000009,3,97213,02:08,Blue,kill,player4,player10,5,5,Entry Kill
+18,Tester_0000000000009,3,109026,01:56,Orange,kill,player8,player5,5,4,Entry Kill
+19,Tester_0000000000009,3,148806,01:16,Orange,kill,player8,player1,4,4,-
+20,Tester_0000000000009,3,172846,00:52,Blue,kill,player3,player6,3,4,-
+21,Tester_0000000000009,3,175977,00:49,Blue,kill,player3,player9,3,3,-
+22,Tester_0000000000009,3,184258,00:41,Blue,kill,player0,player8,3,2,-
+23,Tester_0000000000009,3,222198,00:03,Blue,Time Limit Reached,-,-,3,1,-
+24,Tester_0000000000009,4,73785,02:31,Blue,kill,player4,player10,5,5,Entry Kill
+25,Tester_0000000000009,4,168169,00:57,Orange,kill,player9,player4,5,4,Entry Kill
+26,Tester_0000000000009,4,187619,00:37,Blue,kill,player5,player8,4,4,-
+27,Tester_0000000000009,4,207266,00:18,Blue,kill,player1,player7,4,3,-
+28,Tester_0000000000009,4,207716,00:17,Blue,kill,player3,player9,4,2,-
+29,Tester_0000000000009,4,209104,00:16,Blue,kill,player1,player6,4,1,-
+30,Tester_0000000000009,4,209186,00:16,Blue,Time Limit Reached,-,-,4,0,-
+31,Tester_0000000000009,5,117401,01:48,Orange,kill,player9,player4,5,5,Entry Kill
+32,Tester_0000000000009,5,119080,01:46,Orange,kill,player9,player1,4,5,-
+33,Tester_0000000000009,5,127550,01:37,Blue,kill,player3,player7,3,5,Entry Kill
+34,Tester_0000000000009,5,169770,00:55,Orange,kill,player9,player5,3,4,-
+35,Tester_0000000000009,5,175342,00:50,Orange,kill,player8,player3,2,4,-
+36,Tester_0000000000009,5,185558,00:39,Orange,plant,player6,-,1,4,-
+37,Tester_0000000000009,5,208841,00:16,Orange,kill,player10,player0,1,4,-
+38,Tester_0000000000009,5,208922,00:16,Orange,Defuser Planted,-,-,0,4,-
+39,Tester_0000000000009,6,190200,00:35,Blue,kill,player5,player10,5,5,Entry Kill
+40,Tester_0000000000009,6,198398,00:27,Blue,kill,player5,player7,5,4,-
+41,Tester_0000000000009,6,200862,00:24,Orange,kill,player8,player5,5,3,Entry Kill
+42,Tester_0000000000009,6,202391,00:23,Blue,kill,player0,player8,4,3,Refrag
+43,Tester_0000000000009,6,206424,00:19,Orange,kill,player9,player1,4,2,-
+44,Tester_0000000000009,6,214115,00:11,Orange,kill,player9,player3,3,2,-
+45,Tester_0000000000009,6,218780,00:06,Blue,kill,player0,player6,2,2,-
+46,Tester_0000000000009,6,221087,00:04,Blue,kill,player0,player9,2,1,Refrag
+47,Tester_0000000000009,6,221097,00:04,Blue,Time Limit Reached,-,-,2,0,-
+48,Tester_0000000000009,7,68409,02:37,Blue,kill,player1,player7,5,5,Entry Kill
+49,Tester_0000000000009,7,71212,02:34,Blue,kill,player0,player8,5,4,-
+50,Tester_0000000000009,7,71848,02:33,Blue,kill,player0,player9,5,3,-
+51,Tester_0000000000009,7,77831,02:27,Blue,kill,player3,player6,5,2,-
+52,Tester_0000000000009,7,85912,02:19,Orange,kill,player10,player0,5,1,Entry Kill
+53,Tester_0000000000009,7,99237,02:06,Blue,kill,player1,player10,4,1,-
+54,Tester_0000000000009,7,99302,02:06,Blue,Time Limit Reached,-,-,4,0,-
+55,Tester_0000000000009,8,105469,02:00,Blue,kill,player0,player10,5,5,Entry Kill
+56,Tester_0000000000009,8,107527,01:57,Blue,kill,player5,player8,5,4,-
+57,Tester_0000000000009,8,112013,01:53,Orange,kill,player6,player0,5,3,Entry Kill
+58,Tester_0000000000009,8,141553,01:23,Orange,kill,player9,player5,4,3,-
+59,Tester_0000000000009,8,158147,01:07,Orange,kill,player9,player1,3,3,-
+60,Tester_0000000000009,8,159378,01:06,Blue,kill,player3,player7,2,3,-
+61,Tester_0000000000009,8,198135,00:27,Blue,kill,player3,player6,2,2,-
+62,Tester_0000000000009,8,209423,00:16,Blue,plant,player4,-,2,1,-
+63,Tester_0000000000009,8,226852,-00:02,Blue,kill,player3,player9,2,1,-
+64,Tester_0000000000009,8,226907,-00:02,Blue,Defuser Planted,-,-,2,0,-
 -

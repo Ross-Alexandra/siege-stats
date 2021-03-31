@@ -127,11 +127,17 @@ class UploadFile(Command):
 
             # The guild has changed names
             else:
-                team_id, _ = self._connection.add_team(players)
+                team_id = self._connection.get_team_id_by_name(old_guild_name)
 
                 self._connection.update_guild_name(guild.id, guild.name)
                 self._connection.set_team_name(team_id, guild.name)
-        
+
+        # Attempt to insert the new players into a team.
+        # This allows teams to have more than 5 players (since
+        # this is in a guild, we assume these are subs or whatever.)
+        for player in players:
+            self._connection.add_player_to_team(team_id, player)
+
         return team_id
 
     @staticmethod
