@@ -173,7 +173,7 @@ class BotDB:
         return match_id, True
 
     def add_player_to_team(self, team_id, player_name):
-        player_id = self._get_player_id(player_name)
+        player_id, _ = self._add_player(player_name)
 
         curs = self._connection.cursor()
 

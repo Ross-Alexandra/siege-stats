@@ -1,5 +1,6 @@
 import io
 import requests
+import traceback
 
 from siege_stats.statistics_processing.stat_reader import StatReader
 from siege_stats.bot.command import Command
@@ -27,7 +28,7 @@ class UploadFile(Command):
                 match_type = self._get_match_type(message.channel.name)
 
             if match_type is None:
-                print(f"csv uploaded in invalid text channel: {message.channel.name}. Ignoring.")
+                print(f"csv uploaded with no indication of tag. Ignoring")
                 await message.channel.send(content="Error: I can't figure out what type of match this is, please run one of '=uploadfile scrim', '=uploadfile qual', or '=uploadfile league'.")
                 return
 
@@ -84,6 +85,8 @@ class UploadFile(Command):
                 self._connection.add_statistic(**kwargs)
 
         except Exception as e:
+            print("An error occurred while processing the file")
+            traceback.print_tb(e.__traceback__)
             print(e)
             await message.channel.send(content="Error: An exception has occurred while processing the request :(")
         finally:
