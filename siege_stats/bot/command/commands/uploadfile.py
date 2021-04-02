@@ -36,7 +36,39 @@ class UploadFile(Command):
             self._connection = BotDB()
             match_statistics = self._get_match_stats([attachment.url for attachment in message.attachments])
 
-            team_id = self._get_or_create_guild_team(message.guild, match_statistics.player_stats.keys())
+            team_players = match_statistics.player_stats.keys()
+            guild_team_id = self._get_or_create_guild_team(message.guild, team_players)
+
+            match_id, match_created = self._create_match(guild_team_id, match_type, match_statistics)
+
+            # If that match already exists, then ignore this row.
+            if not match_created:
+                print(f"Match already exists in database. Ignoring.")
+
+                await message.channel.send(content="Error: I already have data for this match :/")
+                return
+
+            for player_name, stat_object in match_statistics.player_stats.items():
+                self._create_statistic(player_name, match_id, match_statistics.match_data["mapString"], stat_object)
+
+
+        except Exception as e:
+            print("An error occurred while processing the file")
+            traceback.print_tb(e.__traceback__)
+            print(e)
+            await message.channel.send(content="Error: An exception has occurred while processing the request :(")
+        finally:
+            await message.delete()
+    
+    def has_access(self, player_id, guild_id):
+        """ Everyone has access to uploading files. """
+        return True
+    
+    def can_execute(self, player_id, guild_id, *args):
+        """ Everyone has the ability run with all arguments. """
+        return True
+
+    def _create_match(self, team_id, match_type, match_statistics):
 
             # Create a dictionary to hold the args for creating a match, and create the match object.
             kwargs = {
@@ -49,22 +81,14 @@ class UploadFile(Command):
                 "attackers_start": match_statistics.match_data["start_attack"],
                 "team_id": team_id,
             }
-            match_id, match_created = self._connection.add_match(**kwargs)
+            return self._connection.add_match(**kwargs)
 
-            # If that match already exists, then ignore this row.
-            if not match_created:
-                print(f"Match already exists in database. Ignoring.")
-
-                await message.channel.send(content="Error: I already have data for this match :/")
-                return
-
-
-            for player_name, stat_object in match_statistics.player_stats.items():
-                # Create a dictionary to hold the args for creating a stats object and create the stats object.
+    def _create_statistic(self, player_name, match_id, map_string, stat_object):
+                        # Create a dictionary to hold the args for creating a stats object and create the stats object.
                 kwargs = {
                     "player": player_name,
                     "match_id": match_id, 
-                    "map_string": match_statistics.match_data["mapString"],
+                    "map_string": map_string,
                     "rating": stat_object.get_rating(),
                     "attack_rating": stat_object.get_attack_rating(),
                     "defence_rating": stat_object.get_defence_rating(),
@@ -82,23 +106,8 @@ class UploadFile(Command):
                     "defuser_disabled": stat_object.get_defuser_disabled(),
                     "team_kills": stat_object.get_team_kills()
                 }
-                self._connection.add_statistic(**kwargs)
 
-        except Exception as e:
-            print("An error occurred while processing the file")
-            traceback.print_tb(e.__traceback__)
-            print(e)
-            await message.channel.send(content="Error: An exception has occurred while processing the request :(")
-        finally:
-            await message.delete()
-    
-    def has_access(self, player_id, guild_id):
-        """ Everyone has access to uploading files. """
-        return True
-    
-    def can_execute(self, player_id, guild_id, *args):
-        """ Everyone has the ability run with all arguments. """
-        return True
+                self._connection.add_statistic(**kwargs)
 
     def _get_match_stats(self, urls):
         temp_files = [self._temp_download_file(url) for url in urls]

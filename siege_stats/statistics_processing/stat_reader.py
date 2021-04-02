@@ -106,7 +106,7 @@ class StatReader:
             index = headerToPosition(data_string)
             raw_data_dict[self._OVERVIEW_DATA_DICT[data_string]] = self._OVERVIEW_DATA_CONVERSION[data_string](overview_data[index])
 
-        self.match_data["matchId"] = raw_data_dict["matchId"]
+        self.match_data["matchId"] = f"{raw_data_dict['matchId'].lower()}_{raw_data_dict['teamColor'].lower()}"
         self.match_data["mapString"] = raw_data_dict["mapString"]
         self.match_data["start_attack"] = raw_data_dict["teamColor"] == raw_data_dict["attackStartTeam"]
         self.match_data["roundsWon"] = raw_data_dict["roundsWon"]
