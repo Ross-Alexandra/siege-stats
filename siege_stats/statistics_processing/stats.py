@@ -182,6 +182,9 @@ class Stats:
 
         getattr(self, actual_name).append(actual_value)
 
+    def total_matches(self):
+        return len(self.rating)
+
     def __add__(self, other):
         for field in self.TRANSLATION_DICT.values():
             setattr(self, field, getattr(self, field) + getattr(other, field))
@@ -193,7 +196,7 @@ class Stats:
 
 
     def __str__(self):
-        stat_string = "Statistics:\n"
+        stat_string = f"Statistics over {self.total_matches()} matches:\n"
         if not self:
             return stat_string + ">\tNo Data."
 
