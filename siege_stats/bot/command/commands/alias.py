@@ -4,19 +4,30 @@ from siege_stats.bot.command import Command
 
 class Alias(Command):
 
+    def _parse_args(self, args):
+        if len(args) != 3:
+            return {}
+
+        else:
+            return {
+                "player_name": args[1].lower(),
+                "alias": args[2].lower()
+            }
+
     @staticmethod
     def command_string():
         return "=alias"
 
     async def execute(self, message, *args):
         try:
-            
-            if len(args) != 3:
+            arg_dict = self._parse_args(args)
+
+            if not arg_dict:
                 await message.channel.send(content=f"Error: Command usage is `=alias player_name player_alias`. Unable to process command {message.content}")
                 return
 
-            player_name = args[1]
-            player_alias = args[2]
+            player_name = arg_dict["player_name"]
+            player_alias = arg_dict["alias"]
 
             # Add forwards
             error_message = self._connection.add_alias(player_name, player_alias)
@@ -48,10 +59,11 @@ class Alias(Command):
         if self._connection.is_user_admin(user_id):
             return True
 
-        if len(args) != 3:
+        arg_dict = self._parse_args(args)
+        if not arg_dict:
             return True # This will be caught and thrown out.
 
-        players = [args[1], args[2]]
+        players = [arg_dict["player_name"], arg_dict["alias"]]
 
         team_ids = {player: self._connection.get_all_teams_for_player(player) for player in players}
 
