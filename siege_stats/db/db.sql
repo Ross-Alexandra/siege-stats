@@ -5,9 +5,9 @@ CREATE TABLE players (
 );
 
 CREATE TABLE player_aliases (
-    player_id integer PRIMARY KEY REFERENCES players(player_id),
-    alias integer,
-    CONSTRAINT alias_exists FOREIGN KEY(alias) REFERENCES players(player_id)
+    player_id integer REFERENCES players(player_id),
+    alias integer REFERENCES players(player_id),
+    PRIMARY KEY(player_id, alias)
 );
 
 CREATE TABLE team_names (

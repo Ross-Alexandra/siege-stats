@@ -18,9 +18,32 @@ class BotDB:
         curs = self._connection.cursor()
         curs.execute(queries.select_player, (player_name,))
 
-        player_id = curs.fetchall()
+        player_id = curs.fetchone()
 
-        return None if len(player_id) == 0 else player_id[0]
+        return None if player_id is None else player_id[0]
+
+    def add_alias(self, player_name, alias):
+        player_id = self._get_player_id(player_name)
+
+        if player_id is None:
+            return f"Error: Unable to find player with name '{player_name}'."
+
+        alias_id = self._get_player_id(alias)
+        if alias_id is None:
+            return f"Error: player for alias '{alias}' does not yet exist. Please upload file with that name included."
+
+        curs = self._connection.cursor()
+        
+        curs.execute(queries.get_alias, (player_id, alias_id))
+        if curs.fetchone():
+            return f"Error: Alias between {player_name} and {alias} already exists"
+
+        curs.execute(queries.add_alias, (player_id, alias_id))
+
+        curs.close()
+        self._connection.commit()
+
+        return None # There was no error to report.
 
     def _add_player(self, player_name):
         curs = self._connection.cursor()
@@ -173,7 +196,7 @@ class BotDB:
         return match_id, True
 
     def add_player_to_team(self, team_id, player_name):
-        player_id, _ = self._add_player(player_name)
+        player_id, player_created = self._add_player(player_name)
 
         curs = self._connection.cursor()
 
@@ -188,6 +211,8 @@ class BotDB:
 
         curs.close()
         self._connection.commit()
+
+        return player_id, player_created
 
     def add_statistic(self, player: str,
                              match_id: int, 
@@ -223,6 +248,15 @@ class BotDB:
 
         return stats_id
 
+    def _get_alias_ids(self, player_id):
+        curs = self._connection.cursor()
+        curs.execute(queries.get_player_aliases, (player_id,))
+
+        alias_ids = curs.fetchall()
+
+        curs.close()
+        return None if len(alias_ids) == 0 else [row[0] for row in alias_ids]
+
     def get_all_teams_for_player(self, player):
         player_id = self._get_player_id(player)
         if player_id is None:
@@ -250,22 +284,31 @@ class BotDB:
         if player_id is None:
             return []
 
-        if match_type is None:
-            curs.execute(queries.select_stat_by_player, (player_id,))
-            player_stats = curs.fetchall()
+        alias_ids = self._get_alias_ids(player_id)
 
-            curs.close()
-            return player_stats
-        else:
-            match_ids = self._get_match_ids_by_match_type(match_type)
-            player_stats = []
+        id_list = [player_id] if alias_ids is None else [player_id] + alias_ids
+        print(f"Getting stats for {id_list}")
 
-            for match_id in match_ids:
-                curs.execute(queries.select_stat_by_player_and_match, (player_id, match_id))
-                player_stats += curs.fetchall()
+        combined_stats = []
 
-            curs.close()
-            return player_stats
+        for player_id in id_list:
+            if match_type is None:
+                curs.execute(queries.select_stat_by_player, (player_id,))
+                player_stats = curs.fetchall()
+
+                combined_stats += player_stats
+            else:
+                match_ids = self._get_match_ids_by_match_type(match_type)
+                player_stats = []
+
+                for match_id in match_ids:
+                    curs.execute(queries.select_stat_by_player_and_match, (player_id, match_id))
+                    player_stats += curs.fetchall()
+
+                combined_stats += player_stats
+
+        curs.close()        
+        return combined_stats
 
     def get_team_id_by_name(self, team_name):
         curs = self._connection.cursor()

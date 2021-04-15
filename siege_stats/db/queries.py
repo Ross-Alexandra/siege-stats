@@ -1,6 +1,11 @@
 # Admin Queries
 get_admin_by_id = "SELECT * FROM bot_admins WHERE discord_user_id=%s LIMIT 1;"
 
+# Alias Queries
+add_alias = "insert into player_aliases(player_id, alias) values(%s, %s);"
+get_alias = "SELECT * FROM player_aliases WHERE player_id=%s and alias=%s;"
+get_player_aliases = "SELECT alias FROM player_aliases WHERE player_id=%s;"
+
 # Guild Queries
 add_guild = "INSERT INTO guilds(guild_id, guild_name) values(%s, %s);"
 set_guild_name = "UPDATE guilds SET guild_name=%s WHERE guild_id=%s;"

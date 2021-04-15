@@ -51,7 +51,6 @@ class UploadFile(Command):
             for player_name, stat_object in match_statistics.player_stats.items():
                 self._create_statistic(player_name, match_id, match_statistics.match_data["mapString"], stat_object)
 
-
         except Exception as e:
             print("An error occurred while processing the file")
             traceback.print_tb(e.__traceback__)

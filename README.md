@@ -1,28 +1,29 @@
 # Required Features
-- Player aliasing. This will allow players to use alts, and rename their mains while maintaining constant stats
+- [x] Player aliasing. This will allow players to use alts, and rename their mains while maintaining constant stats
   - Issues exist with players aliasing accounts not their own. Solution: Players can only alias players they (or their guild) have permissions to query. Dealising is possible. Inter-team trolling isn't my problem.
   - An alias is simply a forwarding of player_ids. If a player has 2 account, or they change their name, an alias will allow querying of data for player_ids where player_id is the one they queries, or where a player_id matches an alias.
 
 # Short-Term Planned Features
 
-- Custom tagging for match (and therefore statistic) data. This will expand on the current hard-coded scrim, qual, and league tags.
+- [ ] Custom tagging for match (and therefore statistic) data. This will expand on the current hard-coded scrim, qual, and league tags.
   - Data can be broken down by tag, similar to now
   - Data is tagged when uploaded. If no tag is provided, then this data will only be seen in aggregates.
   - Allows teams to view their data for specific leagues, against specific teams, etc.
   - Data can be viewed on *multiple* tags. Ie, `=playerstats` will be allowed to be provided a list of tags and it will aggregate all data over these tags. If no tags are provided then it aggregates all data.
-- The ability to only grab data for *n* most recent, or a range of *n* ago to *m* ago games. Specifically, range *n* to 0 is equivalent to *n* most recent.
+- [ ] The ability to only grab data for *n* most recent, or a range of *n* ago to *m* ago games. Specifically, range *n* to 0 is equivalent to *n* most recent.
   - This will allow teams to compare recent and old data.
   - This will allow teams to optionally view new data while preserving the old data.
-- The ability to view statistics on matches that were played:
+- [ ] The ability to view statistics on matches that were played:
   - Map W/L.
   - Site W/L.
   - Map W/L when starting on attack.
   - Map avg rounds at half when starting on attack.
   - Map avg rounds at half when starting on defense.
-- The ability to remove matches from *n* games ago and earlier (or a range of games from *n* ago to *m* ago.)
+- [ ] The ability to remove matches from *n* games ago and earlier (or a range of games from *n* ago to *m* ago.)
 
 # Long-term Planned Features
-- Custom website which will allow total skirting of the DiscordBot. This is for V1.0.0 [release] which will feature either total or partial decoupling from the Discord platform.
+- [ ] Custom website which will allow total skirting of the DiscordBot. This is for V1.0.0 [release] which will feature either total or partial decoupling from the Discord platform.
+- [ ] Custom stat tracking tool which will allow the tool to decouple from R6Analyst. This will allow greater control over the stats collected and likely allow us to minimize issues assosiated with the tool. This is for V1.0.0 [release].
  
 # Bot Usage
 
