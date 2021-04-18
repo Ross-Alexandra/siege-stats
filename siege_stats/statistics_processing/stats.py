@@ -5,7 +5,7 @@ class Stats:
         "DEF Rating": "defenceRating",
         "K-D (+/-)": "killDifferential",
         "Entry (+/-)": "entryDifferential",
-        "Trade Diff.": "tradeDifferential",
+        "Trade Diff": "tradeDifferential",
         "KOST": "kost",
         "KPR": "killsPerRound",
         "SRV": "survivalPercent",
