@@ -33,7 +33,7 @@ class StatReader:
         # Try to find the start_string, if it is not found, empty contents.
         found = False
         for line in file:
-            if line.strip() == start_string:
+            if line.replace(",", "").strip() == start_string:
                 found = True
                 break
         
@@ -67,7 +67,7 @@ class StatReader:
         
         # Attempt to read the file object to parse out the header and
         # 10 performance strings (1 for each player.)
-        header, performance_strings = self._parse_out(file, ",MATCH PERFORMANCE")
+        header, performance_strings = self._parse_out(file, "MATCH PERFORMANCE")
         
         # If data cannot be parsed from the file object then give up
         if not header or not performance_strings:
@@ -90,7 +90,7 @@ class StatReader:
 
         # Attempt to read the file object to parse out the header and
         # the match overview.
-        header, overview_string = self._parse_out(file, ",MATCH OVERVIEW")
+        header, overview_string = self._parse_out(file, "MATCH OVERVIEW")
         headerToPosition = lambda x: header.split(",").index(x)
 
         if not header or not overview_string:
