@@ -12,16 +12,15 @@ class CommandParser:
         self.message = message
 
     async def run(self):
-        try: 
-            # Strip any mentions out of the content of the message.
-            message_content = re.sub(r'<.+?>', '', self.message.content).strip()
-            author = self.message.author
-            guild = self.message.guild
+        # Strip any mentions out of the content of the message.
+        message_content = re.sub(r'<.+?>', '', self.message.content).strip()
+        author = self.message.author
+        guild = self.message.guild
 
-            for subclass in Command.__subclasses__():
-                if message_content.lower().startswith(subclass.command_string()):
-                    command = subclass()
-
+        for subclass in Command.__subclasses__():
+            if message_content.lower().startswith(subclass.command_string()):
+                command = subclass()
+                try: 
                     if command.has_access(author.id, guild.id):
                         command_arguments = message_content.split(" ")
 
@@ -35,9 +34,8 @@ class CommandParser:
                         return await self.message.channel.send(content=error_message)
 
                     return command_response
-
-            print(f"Unknown command: {message_content.lower()}")
-        except Exception as e:
-            print(f'Error occurred while running command {message_content.lower()}:\n{e}')
-        finally:
-            command.cleanup()
+                except Exception as e:
+                    print(f'Error occurred while running command {message_content.lower()}:\n{e}')
+                finally:
+                    command.cleanup()
+        print(f"Unknown command: {message_content.lower()}")
