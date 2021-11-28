@@ -12,29 +12,32 @@ class CommandParser:
         self.message = message
 
     async def run(self):
-        # Strip any mentions out of the content of the message.
-        message_content = re.sub(r'<.+?>', '', self.message.content).strip()
-        author = self.message.author
-        guild = self.message.guild
+        try: 
+            # Strip any mentions out of the content of the message.
+            message_content = re.sub(r'<.+?>', '', self.message.content).strip()
+            author = self.message.author
+            guild = self.message.guild
 
-        for subclass in Command.__subclasses__():
-            if message_content.lower().startswith(subclass.command_string()):
-                command = subclass()
- 
-                if command.has_access(author.id, guild.id):
-                    command_arguments = message_content.split(" ")
+            for subclass in Command.__subclasses__():
+                if message_content.lower().startswith(subclass.command_string()):
+                    command = subclass()
 
-                    if command.can_execute(author.id, guild.id, *command_arguments):
-                        command_response = await command.execute(self.message, *command_arguments)
+                    if command.has_access(author.id, guild.id):
+                        command_arguments = message_content.split(" ")
+
+                        if command.can_execute(author.id, guild.id, *command_arguments):
+                            command_response = await command.execute(self.message, *command_arguments)
+                        else:
+                            error_message = command.execute_permission_error_message(author, guild, command_arguments)
+                            return await self.message.channel.send(content=error_message)
                     else:
-                        error_message = command.execute_permission_error_message(author, guild, command_arguments)
+                        error_message = command.access_permission_error_message(author, guild, command_arguments)
                         return await self.message.channel.send(content=error_message)
 
-                    command.cleanup()
-                else:
-                    error_message = command.access_permission_error_message(author, guild, command_arguments)
-                    return await self.message.channel.send(content=error_message)
+                    return command_response
 
-                return command_response
-
-        print(f"Unknown command: {message_content.lower()}")
+            print(f"Unknown command: {message_content.lower()}")
+        except Exception as e:
+            print(f'Error occurred while running command {message_content.lower()}:\n{e}')
+        finally:
+            command.cleanup()
